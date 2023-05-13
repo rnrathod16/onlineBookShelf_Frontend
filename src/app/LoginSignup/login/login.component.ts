@@ -40,6 +40,9 @@ export class LoginComponent {
           this.toastr.success("Login Success");
           this.route.navigateByUrl("userhomepage");
         }
+        else{
+          this.route.navigateByUrl("userhomepage");
+        }
 
       } 
     })
