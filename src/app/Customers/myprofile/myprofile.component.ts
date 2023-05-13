@@ -9,16 +9,21 @@ import { ServiceLayerService } from 'src/app/service-layer.service';
 export class MyprofileComponent 
 {
   currentuser:any
+  rd:any
+  id:any
   constructor(private ser:ServiceLayerService){
 
   }
 
   ngOnInit(){
+   
+    this.rd=localStorage.getItem("userdata")
+    this.id= JSON.parse(this.rd)
     this.getCurrentUserDetails();
   }
 
   getCurrentUserDetails(){
-    this.ser.getUserById(2).subscribe((data)=>{
+    this.ser.getUserById(this.id.uid).subscribe((data)=>{
       this.currentuser= data;
     })
   }

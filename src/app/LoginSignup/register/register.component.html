@@ -1,0 +1,66 @@
+<div class="container center_div d-flex justify-content-center align-items-center">
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="p-5 shadow-lg p-3 mb-5 bg-white rounded">
+                <h1 class="font_col text-center mb-4 font-weight-bolder">Registration Form</h1>
+                <form #registerForm="ngForm" (ngSubmit)="registerUser(registerForm.value)" novalidate>
+
+                    <div class="form-group">
+                        <label class="font-weight-bolder">Name</label>
+                        <input type="text" class="form-control" name="uname" #name="ngModel" ngModel placeholder="Enter Your Name" required>
+                        <div>
+                            <span *ngIf="name.errors?.['required'] && name.touched " style="color:red">Please Enter Your Name</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bolder">Email</label>
+                        <input type="email" class="form-control" name="uemail" #email="ngModel" ngModel placeholder="Enter Your Email" required>
+                        <div>
+                            <span *ngIf="email.errors?.['required'] && email.touched " style="color:red">Please Enter Your Email</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bolder">Password</label>
+                        <input type="password" class="form-control" name="upassword" #password="ngModel" ngModel placeholder="Enter Your Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" required>
+                        <div>
+                            <span *ngIf="password.errors?.['required'] && password.touched " style="color:red">Please Enter Your Password</span>
+                            <span *ngIf="password.errors?.['pattern'] && password.touched " style="color:red">Enter Atlest 5 Char with Lowercase, Uppercase, Number and Special</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bolder">Mobile </label>
+                        <input type="text" class="form-control" name="umobile" #mob="ngModel" ngModel placeholder="Enter Your Mobile Number" maxlength="10" minlength="10" required>
+                        <div>
+                            <span *ngIf="mob.errors?.['minlength'] && mob.touched" style="color:red">Enter Correct Mobile Number</span>
+                            <span *ngIf="mob.errors?.['required'] && mob.touched " style="color:red">Please Enter Your Mobile</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bolder">Countries</label>
+                        <select name="ucountry" class="form-control" #country="ngModel" ngModel required>
+                    <option>--select--</option>
+                    <option *ngFor="let cc of countryList">{{cc.name}}</option>
+                </select>
+
+                        <div>
+                            <span *ngIf="country.errors?.['required'] && country.touched " style="color:red">Please Enter Your Country</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <button class="btn font-weight-bold btn_back" [disabled]="!registerForm.valid" style="width:100%">Register</button>
+                    </div>
+                    <div>
+                        <p class="text-center mt-4" style="color:grey">Already Have An Account ? <a routerLink="" class="font-weight-bold" style="text-decoration: none;">Login</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+
+            <img src="assets/Images/LoginSignup/Register.svg" alt="SignupImage" style="width: 100%;height: 100%;">
+        </div>
+    </div>
+
+</div>

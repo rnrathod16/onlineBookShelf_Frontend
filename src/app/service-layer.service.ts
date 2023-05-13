@@ -27,6 +27,10 @@ export class ServiceLayerService {
     this.myCart.splice(index,1);
   }
 
+  getCountries(){
+    return this.httpclient.get("https://restcountries.com/v2/all");
+  }
+
   getAllUsers(){
     return this.httpclient.get("Books/list/users");
   }
@@ -41,5 +45,17 @@ export class ServiceLayerService {
 
   getBookById(id:any){
     return this.httpclient.get("Books/getbookbyid/"+id);
+  }
+
+  registerUser(data:any){
+    return this.httpclient.post("Books/list/users",data);
+  }
+
+  loginUser(data:any){
+    return this.httpclient.post("Books/login",data);
+  }
+
+  searchUserByEmail(data:any){
+    return this.httpclient.post("Books/getuser",data);
   }
 }

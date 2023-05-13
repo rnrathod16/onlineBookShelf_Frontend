@@ -1,0 +1,41 @@
+<div class="container center_div d-flex justify-content-center align-items-center">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="assets/Images/LoginSignup/Login.svg" style="width:100%;height:100%">
+        </div>
+
+        <div class="col-md-6">
+            <div class="p-5 shadow-lg p-3 mb-5 bg-white rounded">
+                <h1 class="font_col text-center mb-4 font-weight-bolder">Login Form</h1>
+                <form #loginForm="ngForm" (ngSubmit)="loginDetails(loginForm.value)" novalidate>
+                    <div class="form-group">
+                        <label class="font-weight-bolder">Email address</label>
+                        <input type="email" class="form-control" id="uemail" aria-describedby="uemail" name="uemail" #uemail="ngModel" ngModel placeholder="Enter Email" required>
+                        <div>
+                            <span *ngIf="uemail.errors?.['required'] && uemail.touched " style="color:red">Please Enter EmailID</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="font-weight-bolder">Password</label>
+                        <input type="password" class="form-control" id="upassword" aria-describedby="upassword" name="upassword" #upassword="ngModel" ngModel placeholder="Enter Password" required>
+                        <div>
+                            <span *ngIf="upassword.errors?.['required'] && upassword.touched " style="color:red">Please Enter Password</span>
+                        </div>
+                    </div>
+
+
+                    <div class="mt-4">
+                        <input type="submit" value="Login" class="btn btn1 font-weight-bold btn_back" [disabled]="!loginForm.valid" style="width:100%" />
+                    </div>
+                    <div>
+                        <p class="text-center mt-4" style="color:grey">Don't Have An Account ? <a routerLink="register" class="font-weight-bold" style="text-decoration: none;">Register</a></p>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
