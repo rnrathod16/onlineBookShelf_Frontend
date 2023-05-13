@@ -23,10 +23,25 @@ export class LoginComponent {
       if(this.userData == null){
         console.log("No User Found");
         this.toastr.error("No User Found");      
-      }else if(this.userData.isadmin == "true"){
-        this.toastr.success("Login Success");
-        this.route.navigateByUrl("register");
-      }
+      }else{
+
+        let storeData = {
+          "isadmin": this.userData.isadmin,
+          "ucountry": this.userData.ucountry,
+          "uemail":this.userData.uemail,
+          "uid":this.userData.uid,
+          "umobile":this.userData.umobile,
+          "uname":this.userData.uname
+        }
+
+        localStorage.setItem('userdata',JSON.stringify(storeData));
+
+        if(this.userData.isadmin == "true"){
+          this.toastr.success("Login Success");
+          this.route.navigateByUrl("register");
+        }
+
+      } 
     })
   }
 }
