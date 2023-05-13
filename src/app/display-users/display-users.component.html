@@ -1,0 +1,37 @@
+<div class="container">
+    <table class="table table-bordered table-stripped table-hover">
+        <thead class="table-primary">
+            <tr>
+                <!-- <th>EmpId</th>
+                <th>EmpName</th>
+                <th>Salary</th>
+                <th>Gender</th>
+                <th>EmailId</th>
+                <th>Password</th> -->
+                <th>UId</th>
+                <th>Uname</th>
+                <th>UEmail</th>
+                <th>UPassword</th>
+                <th>Umobile</th>
+                <th>Ucountry</th>
+
+            </tr>
+        </thead>
+        <tbody class="table-info">
+            <tr *ngFor="let u of users">
+                <!-- <td>{{e.empId}}</td>
+                <td>{{e.empName}}</td>
+                <td>{{e.salary}}</td>
+                <td>{{e.gender}}</td>
+                <td>{{e.emailId}}</td>
+                <td>{{e.password}}</td> -->
+                <td>{{u.uid}}</td>
+                <td>{{u.uname}}</td>
+                <td>{{u.uemail}}</td>
+                <td>{{u.upassword}}</td>
+                <td>{{u.umobile}}</td>
+                <td>{{u.ucountry}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
