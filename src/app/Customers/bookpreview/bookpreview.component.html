@@ -1,0 +1,33 @@
+<div class="container d-flex justify-content-center">
+    <div class="container w-25">
+        <form #statusForm="ngForm" (ngSubmit)="statusDetail(statusForm.value)">
+            <div class="form-group">
+                <label class="font-weight-bolder">Select Status</label>
+                <select name="bstatus" class="form-control" #bstatus="ngModel" ngModel>
+            <option value="">--select--</option>
+            <option value="free">Free</option>
+            <option value="paid">Paid</option>
+            </select>
+            </div>
+            <div class="mt-4">
+                <button class="btn btn-success font-weight-bold btn_back" [disabled]="!statusForm.valid" style="width:100%">Check Books</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-4 mt-5" *ngFor="let bs of bookByStatus">
+            <div class="card d-flex justify-content-center text-right pt-4 shadow-lg p-3 mb-5 bg-white rounded" style="width: 18rem;">
+                <img src="" class="card-img-top m-auto" alt="BookImage" style="height:10%;width:30%">
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{bs.bname}}</h5>
+                    <p class="card-text text-center">{{bs.bauthor}}</p>
+                    <p class="card-text text-center">{{bs.bprice | currency : "INR"}}</p>
+
+                    <button class="btn btn-primary" [disabled]="!disableDownload"><a href="assets/Bookpreview/book.pdf" style="color:white;text-decoration: none;font-weight: 500;" download>Download</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

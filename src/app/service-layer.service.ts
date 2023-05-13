@@ -58,4 +58,8 @@ export class ServiceLayerService {
   searchUserByEmail(data:any){
     return this.httpclient.post("Books/getuser",data);
   }
+
+  bookStatusFreePaid(data:any){
+    return this.httpclient.post("Books/bookstatus",data);
+  }
 }

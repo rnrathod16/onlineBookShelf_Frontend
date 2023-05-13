@@ -18,6 +18,7 @@ import { LoginComponent } from './LoginSignup/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BookpreviewComponent } from './Customers/bookpreview/bookpreview.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MyprofileComponent,
     CartComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    BookpreviewComponent
   ],
   imports: [
     BrowserModule,
