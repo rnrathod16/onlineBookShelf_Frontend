@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ServiceLayerService } from '../service-layer.service';
+import { ServiceLayerService } from '../../service-layer.service';
 
 @Component({
   selector: 'app-display-users',
