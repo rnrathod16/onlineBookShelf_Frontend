@@ -22,14 +22,15 @@
                     </div>
                     <div class="form-group">
                         <label class="font-weight-bolder">Password</label>
-                        <input type="password" class="form-control" name="upassword" #password="ngModel" ngModel placeholder="Enter Your Password" required>
+                        <input type="password" class="form-control" name="upassword" #password="ngModel" ngModel placeholder="Enter Your Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" required>
                         <div>
                             <span *ngIf="password.errors?.['required'] && password.touched " style="color:red">Please Enter Your Password</span>
+                            <span *ngIf="password.errors?.['pattern'] && password.touched " style="color:red">Enter Atlest 5 Char with Lowercase, Uppercase, Number and Special</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="font-weight-bolder">Mobile </label>
-                        <input type="number" class="form-control" name="umobile" maxlength="10" minlength="3" #mob="ngModel" ngModel placeholder="Enter Your Mobile Number" required>
+                        <input type="text" class="form-control" name="umobile" #mob="ngModel" ngModel placeholder="Enter Your Mobile Number" maxlength="10" minlength="10" required>
                         <div>
                             <span *ngIf="mob.errors?.['minlength'] && mob.touched" style="color:red">Enter Correct Mobile Number</span>
                             <span *ngIf="mob.errors?.['required'] && mob.touched " style="color:red">Please Enter Your Mobile</span>
@@ -48,6 +49,9 @@
                     </div>
                     <div class="mt-4">
                         <button class="btn font-weight-bold btn_back" [disabled]="!registerForm.valid" style="width:100%">Register</button>
+                    </div>
+                    <div>
+                        <p class="text-center mt-4" style="color:grey">Already Have An Account ? <a routerLink="" class="font-weight-bold" style="text-decoration: none;">Login</a></p>
                     </div>
                 </form>
             </div>
