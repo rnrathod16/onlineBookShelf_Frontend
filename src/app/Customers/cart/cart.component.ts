@@ -17,6 +17,8 @@ export class CartComponent
   }
 
   ngOnInit(){
+    this.IdsInCart.splice(0);
+    this.BooksInCart.splice(0);
     this.IdsInCart= this.ser.getcart();
     this.displayBooksInCart();
     console.log(this.BooksInCart);
@@ -32,8 +34,10 @@ export class CartComponent
 
     }
   }
-  removeFromCart(bid:any){
-      this.ser.deleteFromCart(bid);
+  removeFromCart(b:any){
+      this.ser.deleteFromCart(b.bid);
+      console.log(this.ser.getcart());
+      alert(b.bname + "Has been removed from Cart!");
       this.ngOnInit();
   }
 

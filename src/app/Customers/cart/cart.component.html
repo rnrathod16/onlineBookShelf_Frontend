@@ -7,7 +7,7 @@
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link active" routerLink="">Home
+            <a class="nav-link active" routerLink="../userhomepage">Home
             </a>
           </li>
           <li class="nav-item">
@@ -54,7 +54,7 @@
                     <h1>{{b.bname}}</h1>
                     <h1>cart</h1>
                     <p>{{b.bdesc}}</p>
-                    <button class="btn btn-primary" (click)="removeFromCart(b.bid)" style="float: left;margin-right: 5px;">Remove from Cart</button>
+                    <button class="btn btn-primary" (click)="removeFromCart(b)" style="float: left;margin-right: 5px;">Remove from Cart</button>
                 </div>
             </div>
         </div>

@@ -7,24 +7,23 @@ import { Injectable } from '@angular/core';
 export class ServiceLayerService {
 
 
-  myCart:any
+   static myCart:number[];
   constructor(private httpclient:HttpClient) 
   { 
-    this.myCart=[];
+    ServiceLayerService.myCart=[];
   }
 
   addToCart(bid:any)
   {
-    this.myCart.push(bid);
+    ServiceLayerService.myCart.push(bid);
   }
 
   getcart(){
-    return this.myCart;
+    return ServiceLayerService.myCart;
   }
 
   deleteFromCart(id:any){
-    const index = this.myCart.findIndex(id);
-    this.myCart.splice(index,1);
+    ServiceLayerService.myCart.splice(ServiceLayerService.myCart.indexOf(105),1);
   }
 
   getCountries(){
@@ -57,5 +56,9 @@ export class ServiceLayerService {
 
   searchUserByEmail(data:any){
     return this.httpclient.post("Books/getuser",data);
+  }
+
+  searchForBooks(bdetail:any){
+    return this.httpclient.get("Books/searchBooks/"+bdetail);
   }
 }
