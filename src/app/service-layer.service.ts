@@ -73,4 +73,8 @@ export class ServiceLayerService {
   searchForBooks(bdetail:any){
     return this.httpclient.get("Books/searchBooks/"+bdetail);
   }
+
+  deleteBookById(bid:any){
+    return this.httpclient.post("Books/deletebookbyid",bid);
+  }
 }

@@ -1,0 +1,46 @@
+<app-navbaradmin></app-navbaradmin>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-4 mt-5" *ngFor="let bs of allBooks">
+            <div class="card d-flex justify-content-center text-right pt-4 shadow-lg mb-5 bg-white rounded" style="width: 18rem;">
+                <img src="{{bs.bimg}}" class="card-img-top m-auto" alt="BookImage" style="height:10%;width:50%">
+                <div class="card-body">
+                    <p class="card-text text-center"><span class="font-weight-bold">Author : </span>{{bs.bauthor}}</p>
+                    <p class="card-text text-center"><span class="font-weight-bold">InStock : </span>{{bs.bstock}}</p>
+                    <p class="card-text text-center"><span class="font-weight-bold">Price : </span>{{bs.bprice | currency : "INR"}}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#t' + bs.bid">Stock</button>
+                        <button class="btn btn-danger" (click)="deleteBook({bid:bs.bid})">Delete</button>
+                    </div>
+                    <div class="modal fade" id="t{{bs.bid}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title font-weight-bolder" id="exampleModalLabel">{{bs.bname}}</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                                </div>
+                                <form #addStock="ngForm" (ngSubmit)="stockDetails(addStock.value)" novalidate>
+                                    <div class="modal-body">
+                                        <div class="form-group d-flex justify-content-center align-items-start flex-column">
+                                            <label class="font-weight-bolder text-left">Current Stock - {{bs.bstock}}</label>
+                                            <input type="number" class="form-control" id="bstock" aria-describedby="bstock" name="bstock" #bstock="ngModel" ngModel placeholder="Enter Stock to Add" required>
+                                            <div>
+                                                <span *ngIf="bstock.errors?.['required'] && bstock.touched " style="color:red">Enter Stock to Add</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="callAgain">Close</button>
+                                        <button type="submit" class="btn btn-primary" [disabled]="!addStock.valid">Add</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { delay } from 'rxjs';
 import { ServiceLayerService } from 'src/app/service-layer.service';
 
@@ -15,7 +16,7 @@ export class AddbookComponent {
   bookImgUrl:any;
   bookData:any;
 
-  constructor(private service:ServiceLayerService,private http:HttpClient){
+  constructor(private service:ServiceLayerService,private http:HttpClient,private toastr: ToastrService){
 
   }
 
@@ -45,7 +46,7 @@ export class AddbookComponent {
 
       this.service.addBooks(data).subscribe((info)=>{
         console.log(info);
-        
+        this.toastr.success(data.bname+" Added Success")
       })
     });
   
