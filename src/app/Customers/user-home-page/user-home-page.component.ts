@@ -12,7 +12,15 @@ import { ServiceLayerService } from 'src/app/service-layer.service';
 export class UserHomePageComponent {
 
   booklist:any;
+  rd:any
+  user:any
+  cartobject:any
   constructor(private ser:ServiceLayerService, private route:Router,private toastr: ToastrService){
+    this.cartobject={
+      "bid": "",
+      "uid": ""
+      
+    }
   }
 
   getAllBooks()
@@ -24,7 +32,16 @@ export class UserHomePageComponent {
   }
   addThisToCart(bid:any,bname:any)
   {
-    this.ser.addToCart(bid);
+    this.rd=localStorage.getItem("userdata");
+    this.user=JSON.parse(this.rd);
+    this.cartobject={
+      "bid": bid,
+      "uid": this.user.uid
+    }
+
+    this.ser.addToCart(this.cartobject).subscribe((data)=>{
+
+    });
     // alert(bname+"has been Added To Cart!");
     this.toastr.success(bname+" has been Added To Cart!");
 
