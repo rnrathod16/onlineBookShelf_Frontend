@@ -21,9 +21,12 @@
             <span aria-hidden="true">&times;</span>
           </button>
                                 </div>
-                                <form #addStock="ngForm" (ngSubmit)="stockDetails(addStock.value)" novalidate>
+                                <form novalidate>
                                     <div class="modal-body">
                                         <div class="form-group d-flex justify-content-center align-items-start flex-column">
+                                            <label class="font-weight-bolder text-left">Book Id</label>
+                                            <input type="number" class="form-control" id="bid" value="{{bs.bid}}" aria-describedby="bid" name="bid" #bid="ngModel" ngModel placeholder="{{bs.bid}}" required disabled>
+
                                             <label class="font-weight-bolder text-left">Current Stock - {{bs.bstock}}</label>
                                             <input type="number" class="form-control" id="bstock" aria-describedby="bstock" name="bstock" #bstock="ngModel" ngModel placeholder="Enter Stock to Add" required>
                                             <div>
@@ -32,8 +35,8 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="callAgain">Close</button>
-                                        <button type="submit" class="btn btn-primary" [disabled]="!addStock.valid">Add</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="callAgain()">Close</button>
+                                        <button type="submit" class="btn btn-primary" (click)="stockDetails({bstock:bstock.value,bid:bs.bid})">Add</button>
                                     </div>
                                 </form>
                             </div>

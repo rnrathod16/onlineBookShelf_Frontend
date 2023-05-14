@@ -77,4 +77,8 @@ export class ServiceLayerService {
   deleteBookById(bid:any){
     return this.httpclient.post("Books/deletebookbyid",bid);
   }
+
+  updateStock(data:any){
+    return this.httpclient.put("Books/updateStock",data);
+  }
 }

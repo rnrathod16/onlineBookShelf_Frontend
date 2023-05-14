@@ -10,7 +10,6 @@ import { ServiceLayerService } from 'src/app/service-layer.service';
 export class AllbookComponent {
 
   allBooks:any;
-  IsmodelShow:any;
   constructor(private service:ServiceLayerService,private toastr: ToastrService){}
 
   ngOnInit(){
@@ -26,7 +25,9 @@ export class AllbookComponent {
 
   stockDetails(data:any){
     console.log(data);
-    this.IsmodelShow=true;
+    this.service.updateStock(data).subscribe((info)=>{
+      console.log(info); 
+    })
   }
 
   deleteBook(data:any){

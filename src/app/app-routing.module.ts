@@ -15,10 +15,10 @@ const routes: Routes = [
   {path:"userhomepage", component:UserHomePageComponent},
   {path:"myprofilepage", component:MyprofileComponent},
   {path:"mycartpage",component:CartComponent},
-  {path:"addbook",component:LoginComponent},
+  {path:"",component:LoginComponent},
   {path:"register",component:RegisterComponent},
   {path:"preview",component:BookpreviewComponent},
-  {path:"",component:AddbookComponent},
+  {path:"addbook",component:AddbookComponent},
   {path:"searchbookpage",component:SearchBookComponent},
   {path:"allbook",component:AllbookComponent}
 ];
