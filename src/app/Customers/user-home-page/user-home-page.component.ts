@@ -30,14 +30,7 @@ export class UserHomePageComponent {
 
   }
 
-  searchForBook(booksearchdetails:any){
-    console.log(booksearchdetails.booksearch)
-  
-    localStorage.setItem("searchbook",JSON.stringify(booksearchdetails.booksearch));
-    this.route.navigateByUrl("searchbookpage");
 
-
-  }
   ngOnInit(){
     this.getAllBooks();
   }
