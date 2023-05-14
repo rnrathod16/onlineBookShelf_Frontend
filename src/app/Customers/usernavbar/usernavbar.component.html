@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color:#6C63FF;">
+    <div class="container">
+        <a class="navbar-brand" routerLink="/userhomepage" style="width: 7%;"><img src="assets/Images/Logo.png" alt="logo" style="width: 100%;"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/userhomepage">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/preview">Library</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/myprofilepage">My Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/mycartpage">My Cart</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Fiction</a>
+                        <a class="dropdown-item" href="#">Romance</a>
+                        <a class="dropdown-item" href="#">Fantasy</a>
+                        <a class="dropdown-item" href="#">Thriller</a>
+                        <a class="dropdown-item" href="#">Horror</a>
+                        <a class="dropdown-item" href="#">Biography</a>
+                        <a class="dropdown-item" href="#">Motivational</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+            </ul>
+            <p class="nav-link mb-0 mr-5 font-weight-bolder" style="color:white;">Welcome {{displayName}} !!</p>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>

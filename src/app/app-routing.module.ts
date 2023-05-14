@@ -12,9 +12,9 @@ const routes: Routes = [
   {path:"userhomepage", component:UserHomePageComponent},
   {path:"myprofilepage", component:MyprofileComponent},
   {path:"mycartpage",component:CartComponent},
-  {path:"preview",component:LoginComponent},
+  {path:"",component:LoginComponent},
   {path:"register",component:RegisterComponent},
-  {path:"",component:BookpreviewComponent}
+  {path:"preview",component:BookpreviewComponent}
 ];
 
 @NgModule({

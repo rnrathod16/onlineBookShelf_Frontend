@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ServiceLayerService } from 'src/app/service-layer.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { ServiceLayerService } from 'src/app/service-layer.service';
 export class UserHomePageComponent {
 
   booklist:any;
-  constructor(private ser:ServiceLayerService, private route:Router){
+  constructor(private ser:ServiceLayerService, private route:Router,private toastr: ToastrService){
   }
 
   getAllBooks()
@@ -23,7 +24,9 @@ export class UserHomePageComponent {
   addThisToCart(bid:any,bname:any)
   {
     this.ser.addToCart(bid);
-    alert(bname+"has been Added To Cart!");
+    // alert(bname+"has been Added To Cart!");
+    this.toastr.success(bname+" has been Added To Cart!");
+
   }
   ngOnInit(){
     this.getAllBooks();

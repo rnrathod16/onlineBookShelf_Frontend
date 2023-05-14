@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BookpreviewComponent } from './Customers/bookpreview/bookpreview.component';
+import { UsernavbarComponent } from './Customers/usernavbar/usernavbar.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { BookpreviewComponent } from './Customers/bookpreview/bookpreview.compon
     CartComponent,
     RegisterComponent,
     LoginComponent,
-    BookpreviewComponent
+    BookpreviewComponent,
+    UsernavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,7 @@ import { BookpreviewComponent } from './Customers/bookpreview/bookpreview.compon
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       timeOut: 5000,
-      positionClass: 'toast-top-center',
+      positionClass: 'toast-top-left',
       preventDuplicates: true,progressBar:true,
       progressAnimation:'decreasing'
     }),
