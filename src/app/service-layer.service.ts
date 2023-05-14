@@ -62,4 +62,12 @@ export class ServiceLayerService {
   bookStatusFreePaid(data:any){
     return this.httpclient.post("Books/bookstatus",data);
   }
+
+  getAllCategories(){
+    return this.httpclient.get("Books/list/categories");
+  }
+
+  addBooks(data:any){
+    return this.httpclient.post("Books/list",data);
+  }
 }

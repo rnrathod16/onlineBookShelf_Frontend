@@ -1,0 +1,106 @@
+<app-navbaradmin></app-navbaradmin>
+<div class="container center_div d-flex justify-content-center align-items-center">
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <div class="p-5 shadow-lg p-3 mb-5 bg-white rounded">
+                <h1 class="font_col text-center mb-4 font-weight-bolder" style="color:blue;">Add Book To Shop</h1>
+                <form #addBookForm="ngForm" (ngSubmit)="addBook(addBookForm.value)" novalidate>
+
+                    <div class="form-group d-flex justify-content-between">
+                        <div style="width: 47%;">
+                            <label class="font-weight-bolder">Book Name</label>
+                            <input type="text" class="form-control" name="bname" #bname="ngModel" ngModel placeholder="Enter Book Name" required>
+                            <div>
+                                <span *ngIf="bname.errors?.['required'] && bname.touched " style="color:red">Enter Book Name</span>
+                            </div>
+                        </div>
+                        <div style="width: 47%;">
+                            <label class="font-weight-bolder">Book Description</label>
+                            <input type="text" class="form-control" name="bdesc" #bdesc="ngModel" ngModel placeholder="Enter Book Description" required>
+                            <div>
+                                <span *ngIf="bdesc.errors?.['required'] && bdesc.touched " style="color:red">Enter Book Description</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group d-flex justify-content-between">
+                        <div style="width: 47%;">
+                            <label class="font-weight-bolder">Book Price</label>
+                            <input type="number" class="form-control" name="bprice" #bprice="ngModel" ngModel placeholder="Please Enter Book Price" required>
+                            <div>
+                                <span *ngIf="bprice.errors?.['required'] && bprice.touched " style="color:red">Please Enter Book Price</span>
+                            </div>
+                        </div>
+                        <div style="width: 47%;">
+                            <label class="font-weight-bolder">Book Author</label>
+                            <input type="text" class="form-control" name="bauthor" #bauthor="ngModel" ngModel placeholder="Enter Name of Author" required>
+                            <div>
+                                <span *ngIf="bauthor.errors?.['required'] && bauthor.touched " style="color:red">Enter Name of Author</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group d-flex justify-content-between">
+                        <div style="width: 47%;">
+                            <label class="font-weight-bolder">Publish Date</label>
+                            <input type="date" class="form-control" name="bpublishdate" #bpublishdate="ngModel" ngModel placeholder="Enter Publish Date" required>
+                            <div>
+                                <span *ngIf="bpublishdate.errors?.['required'] && bpublishdate.touched " style="color:red">Enter Publish Date</span>
+                            </div>
+                        </div>
+                        <div style="width: 47%;">
+                            <label class="font-weight-bolder">Book Stock</label>
+                            <input type="number" class="form-control" name="bstock" #bstock="ngModel" ngModel placeholder="Please Enter Book Price" required>
+                            <div>
+                                <span *ngIf="bstock.errors?.['required'] && bstock.touched " style="color:red">Please Enter Book Price</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="font-weight-bolder">Book Image</label>
+                        <input type="file" class="form-control" name="bimg" #bimg="ngModel" ngModel placeholder="Add Image" (change)="getFile($event)" required>
+                    </div>
+
+                    <div class="form-group d-flex justify-content-between">
+                        <div style="width: 47%;">
+                            <label class="font-weight-bolder">Book Status</label>
+                            <select name="bstatus" class="form-control" #bstatus="ngModel" ngModel required>
+                    <option value="">Select Status</option>
+                    <option value="free">Free</option>
+                    <option value="paid">Paid</option>
+                </select>
+
+                            <div>
+                                <span *ngIf="bstatus.errors?.['required'] && bstatus.touched " style="color:red">Select Book Status</span>
+                            </div>
+                        </div>
+                        <div style="width: 47%;">
+                            <label class="font-weight-bolder">Book Categories</label>
+                            <select name="cid" class="form-control" #cid="ngModel" ngModel required>
+                    <option value="">Select Category</option>
+                    <option *ngFor="let c of bookCategories" value="{{c.cid}}">{{c.cname}}</option>
+                </select>
+
+                            <div>
+                                <span *ngIf="cid.errors?.['required'] && cid.touched " style="color:red">Please Enter Your Country</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                    </div>
+
+                    <div class="mt-4">
+                        <button class="btn btn-primary font-weight-bold btn_back" [disabled]="!addBookForm.valid" style="width:100%">Add Book</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+
+            <img src="assets/Images/Admin/addbook.svg" alt="SignupImage" style="width: 100%;height: 100%;">
+        </div>
+    </div>
+
+</div>

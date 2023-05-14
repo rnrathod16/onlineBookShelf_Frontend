@@ -20,6 +20,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BookpreviewComponent } from './Customers/bookpreview/bookpreview.component';
 import { UsernavbarComponent } from './Customers/usernavbar/usernavbar.component';
+import { AddbookComponent } from './Admin/addbook/addbook.component';
+import { NavbaradminComponent } from './Admin/navbaradmin/navbaradmin.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { UsernavbarComponent } from './Customers/usernavbar/usernavbar.component
     RegisterComponent,
     LoginComponent,
     BookpreviewComponent,
-    UsernavbarComponent
+    UsernavbarComponent,
+    AddbookComponent,
+    NavbaradminComponent
   ],
   imports: [
     BrowserModule,

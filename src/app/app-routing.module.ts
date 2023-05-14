@@ -7,6 +7,7 @@ import { UserHomePageComponent } from './Customers/user-home-page/user-home-page
 import { LoginComponent } from './LoginSignup/login/login.component';
 import { RegisterComponent } from './LoginSignup/register/register.component';
 import { BookpreviewComponent } from './Customers/bookpreview/bookpreview.component';
+import { AddbookComponent } from './Admin/addbook/addbook.component';
 
 const routes: Routes = [
   {path:"userhomepage", component:UserHomePageComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path:"mycartpage",component:CartComponent},
   {path:"",component:LoginComponent},
   {path:"register",component:RegisterComponent},
-  {path:"preview",component:BookpreviewComponent}
+  {path:"preview",component:BookpreviewComponent},
+  {path:"addbook",component:AddbookComponent}
 ];
 
 @NgModule({

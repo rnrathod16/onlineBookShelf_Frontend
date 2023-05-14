@@ -38,7 +38,7 @@ export class LoginComponent {
 
         if(this.userData.isadmin == "true"){
           this.toastr.success("Login Success");
-          this.route.navigateByUrl("userhomepage");
+          this.route.navigateByUrl("addbook");
         }
         else{
           this.route.navigateByUrl("userhomepage");
