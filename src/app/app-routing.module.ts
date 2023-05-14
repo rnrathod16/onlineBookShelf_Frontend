@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { CartComponent } from './Customers/cart/cart.component';
 import { MyprofileComponent } from './Customers/myprofile/myprofile.component';
+import { SearchBookComponent } from './Customers/search-book/search-book.component';
 import { UserHomePageComponent } from './Customers/user-home-page/user-home-page.component';
 import { LoginComponent } from './LoginSignup/login/login.component';
 import { RegisterComponent } from './LoginSignup/register/register.component';
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path:"",component:LoginComponent},
   {path:"register",component:RegisterComponent},
   {path:"preview",component:BookpreviewComponent},
-  {path:"addbook",component:AddbookComponent}
+  {path:"addbook",component:AddbookComponent},
+  {path:"searchbookpage",component:SearchBookComponent}
 ];
 
 @NgModule({

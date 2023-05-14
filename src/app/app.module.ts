@@ -22,6 +22,7 @@ import { BookpreviewComponent } from './Customers/bookpreview/bookpreview.compon
 import { UsernavbarComponent } from './Customers/usernavbar/usernavbar.component';
 import { AddbookComponent } from './Admin/addbook/addbook.component';
 import { NavbaradminComponent } from './Admin/navbaradmin/navbaradmin.component';
+import { SearchBookComponent } from './Customers/search-book/search-book.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { NavbaradminComponent } from './Admin/navbaradmin/navbaradmin.component'
     BookpreviewComponent,
     UsernavbarComponent,
     AddbookComponent,
-    NavbaradminComponent
+    NavbaradminComponent,
+    SearchBookComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -26,6 +27,15 @@ export class UserHomePageComponent {
     this.ser.addToCart(bid);
     // alert(bname+"has been Added To Cart!");
     this.toastr.success(bname+" has been Added To Cart!");
+
+  }
+
+  searchForBook(booksearchdetails:any){
+    console.log(booksearchdetails.booksearch)
+  
+    localStorage.setItem("searchbook",JSON.stringify(booksearchdetails.booksearch));
+    this.route.navigateByUrl("searchbookpage");
+
 
   }
   ngOnInit(){
