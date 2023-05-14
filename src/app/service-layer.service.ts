@@ -7,23 +7,23 @@ import { Injectable } from '@angular/core';
 export class ServiceLayerService {
 
 
-   static myCart:number[];
   constructor(private httpclient:HttpClient) 
   { 
-    ServiceLayerService.myCart=[];
   }
 
-  addToCart(bid:any)
+  addToCart(cartitem:any)
   {
-    ServiceLayerService.myCart.push(bid);
+    
+    return this.httpclient.post("Books/wish",cartitem);
+    console.log("in service: "+cartitem)
   }
 
   getcart(){
-    return ServiceLayerService.myCart;
+    return this.httpclient.get("Books/wish");
   }
 
   deleteFromCart(id:any){
-    ServiceLayerService.myCart.splice(ServiceLayerService.myCart.indexOf(105),1);
+    return this.httpclient.delete("Books/wishlist/"+id);
   }
 
   getCountries(){

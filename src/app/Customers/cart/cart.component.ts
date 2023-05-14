@@ -9,36 +9,37 @@ import { ServiceLayerService } from 'src/app/service-layer.service';
 export class CartComponent 
 {
 
-  BooksInCart:any
-  IdsInCart:any
+  IdsInCart:any=[];
+  BooksInCart:any=[];
   constructor(private ser: ServiceLayerService){
-    this.IdsInCart=[];
-    this.BooksInCart=[];
   }
 
   ngOnInit(){
-    this.IdsInCart.splice(0);
-    this.BooksInCart.splice(0);
-    this.IdsInCart= this.ser.getcart();
+    this.BooksInCart=[]
     this.displayBooksInCart();
-    console.log(this.BooksInCart);
   }
 
   displayBooksInCart()
   {
-    for(let i=0;i<this.IdsInCart.length;i++)
-    {
-      this.ser.getBookById(this.IdsInCart[i]).subscribe((data)=>{
-        this.BooksInCart.push(data);
+      this.ser.getcart().subscribe((cartlist)=>{
+        this.IdsInCart=cartlist;
+        console.log("hi"+this.IdsInCart[0].bid)
+        for(let i=0;i<this.IdsInCart.length;i++){
+          this.ser.getBookById(this.IdsInCart[i].bid).subscribe((bookdata)=>{
+            this.BooksInCart.push(bookdata);
+            console.log(bookdata);
+          })
+        }
       })
-
-    }
+      
+      
   }
   removeFromCart(b:any){
-      this.ser.deleteFromCart(b.bid);
-      console.log(this.ser.getcart());
-      alert(b.bname + "Has been removed from Cart!");
+    this.ser.deleteFromCart(b.bid).subscribe((data)=>{
       this.ngOnInit();
+    });
+    
+
   }
 
 }
