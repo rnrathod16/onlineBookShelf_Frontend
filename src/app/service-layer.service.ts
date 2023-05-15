@@ -66,6 +66,15 @@ export class ServiceLayerService {
     return this.httpclient.get("Books/list/categories");
   }
 
+  insertCateogery(data:any){
+    return this.httpclient.post("Books/insertCatogery",data);
+  }
+
+
+  deleteCategory(id:any){
+    return this.httpclient.delete("Books/categories"+id);
+  }
+
   addBooks(data:any){
     return this.httpclient.post("Books/list",data);
   }
