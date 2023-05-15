@@ -1,6 +1,6 @@
 <app-usernavbar></app-usernavbar>
 
-<div class="container-fluid">
+<!-- <div class="container-fluid">
     <div class="col-md-12">
         <h3>User Name: </h3>
         <h5>{{currentuser.uname}}</h5>
@@ -26,4 +26,70 @@
         <h5>{{currentuser.ucountry}}</h5>
         <button class="btn btn-primary">Change</button>
     </div>
+</div> -->
+
+<div class="container center_div d-flex justify-content-center align-items-center mt-5">
+    <div class="row">
+        <div class="col-md-6">
+
+            <img src="assets/Images/Users/profile.svg" alt="SignupImage" style="width: 100%;height: 100%;">
+        </div>
+
+        <div class="col-md-6">
+            <div class="p-5 shadow-lg p-3 mb-5 bg-white rounded">
+                <h1 class="font_col text-center mb-4 font-weight-bolder">Profile Edit</h1>
+                <form #updateUserForm="ngForm" (ngSubmit)="updateUserData(updateUserForm.value)" novalidate>
+
+                    <div class="form-group">
+                        <label class="font-weight-bolder">Name</label>
+                        <input type="text" class="form-control" name="uname" #name="ngModel" ngModel placeholder="{{currentuser.uname}}" [(ngModel)]="currentuser.uname" required>
+                        <div>
+                            <span *ngIf="name.errors?.['required'] && name.touched " style="color:red">Please Enter Your Name</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bolder">Email</label>
+                        <input type="email" class="form-control" name="uemail" #uemail="ngModel" ngModel placeholder="{{currentuser.uemail}}" [(ngModel)]="currentuser.uemail" required>
+                        <div>
+                            <span *ngIf="uemail.errors?.['required'] && uemail.touched " style="color:red">Please Enter Your Email</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bolder">Password</label>
+                        <input type="password" class="form-control" name="upassword" #password="ngModel" ngModel placeholder="{{currentuser.upassword}}" [(ngModel)]="currentuser.upassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" required>
+                        <div>
+                            <span *ngIf="password.errors?.['required'] && password.touched " style="color:red">Please Enter Your Password</span>
+                            <span *ngIf="password.errors?.['pattern'] && password.touched " style="color:red">Enter Atlest 5 Char with Lowercase, Uppercase, Number and Special</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bolder">Mobile </label>
+                        <input type="text" class="form-control" name="umobile" #mob="ngModel" ngModel placeholder="{{currentuser.umobile}}" maxlength="10" minlength="10" [(ngModel)]="currentuser.umobile" required>
+                        <div>
+                            <span *ngIf="mob.errors?.['minlength'] && mob.touched" style="color:red">Enter Correct Mobile Number</span>
+                            <span *ngIf="mob.errors?.['required'] && mob.touched " style="color:red">Please Enter Your Mobile</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bolder">Countries</label>
+                        <input type="text" class="form-control" name="ucountry" #ucountry="ngModel" ngModel placeholder="{{currentuser.ucountry}}" [(ngModel)]="currentuser.ucountry" required>
+                        <!-- <select name="ucountry" class="form-control" #country="ngModel" ngModel required>
+                    <option>--select--</option>
+                    <option *ngFor="let cc of countryList">{{cc.name}}</option>
+                </select> -->
+
+                        <!-- <div>
+                            <span *ngIf="country.errors?.['required'] && country.touched " style="color:red">Please Enter Your Country</span>
+                        </div> -->
+                    </div>
+                    <div class="mt-4">
+                        <button type="submit" class="btn font-weight-bold btn_back" style="width:100%">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+
 </div>

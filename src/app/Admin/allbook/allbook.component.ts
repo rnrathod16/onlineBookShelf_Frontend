@@ -10,12 +10,33 @@ import { ServiceLayerService } from 'src/app/service-layer.service';
 export class AllbookComponent {
 
   allBooks:any;
+  bookCategories:any;
+  resultFilter:any;
+  filterRes:any = [];
   constructor(private service:ServiceLayerService,private toastr: ToastrService){}
 
   ngOnInit(){
     this.service.getAllBooks().subscribe((info)=>{    
       this.allBooks = info;
+      this.filterRes = info;
     })
+
+    this.service.getAllCategories().subscribe((data)=>{
+      this.bookCategories = data;    
+    })
+    
+  }
+
+  categoryDetail(data:any){
+    this.filterRes = [];
+    this.resultFilter = this.allBooks.filter((book:any) =>{
+      // book.cid==data.cid;
+      if(book.cid == data.cid){
+        this.filterRes.push(book);
+      }     
+    })
+    console.log(this.filterRes);
+    
     
   }
 
