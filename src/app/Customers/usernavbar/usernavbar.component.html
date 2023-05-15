@@ -36,7 +36,8 @@
                     </div>
                 </li>
             </ul>
-            <p class="nav-link mb-0 mr-5 font-weight-bolder" style="color:white;">Welcome {{displayName}} !!</p>
+            <p class="nav-link mb-0 mr-3 font-weight-bolder" style="color:white;">Welcome {{displayName}} !!</p>
+            <button class="btn btn-danger my-2 my-sm-0 mr-4" (click)="logoutUser()">Logout</button>
             <form class="d-flex" #searching="ngForm" (ngSubmit)="searchForBook(searching.value)">
                 <input class="form-control me-sm-2" type="text" placeholder="Search" name="booksearch" #booksearch="ngModel" ngModel>
                 <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>

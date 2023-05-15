@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ServiceLayerService } from 'src/app/service-layer.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class UsernavbarComponent {
   displayName:any;
 
   searchedBooks:any;
-  constructor(private route:Router,private ser:ServiceLayerService){}
+  constructor(private route:Router,private ser:ServiceLayerService,private toastr:ToastrService){}
 
   ngOnInit(){
     this.userName = localStorage.getItem("userdata");
@@ -26,5 +27,11 @@ export class UsernavbarComponent {
     localStorage.setItem("searchbook",JSON.stringify(booksearchdetails.booksearch));
     this.route.navigateByUrl("searchbookpage");
 
+  }
+
+  logoutUser(){
+    window.localStorage.clear();
+    this.toastr.success("User Logged Out");
+    this.route.navigateByUrl("/");
   }
 }
