@@ -24,6 +24,8 @@ import { AddbookComponent } from './Admin/addbook/addbook.component';
 import { NavbaradminComponent } from './Admin/navbaradmin/navbaradmin.component';
 import { SearchBookComponent } from './Customers/search-book/search-book.component';
 import { AllbookComponent } from './Admin/allbook/allbook.component';
+import { CheckoutComponent } from './Customers/checkout/checkout.component';
+import { PaymentComponent } from './Customers/payment/payment.component';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { AllbookComponent } from './Admin/allbook/allbook.component';
     AddbookComponent,
     NavbaradminComponent,
     SearchBookComponent,
-    AllbookComponent
+    AllbookComponent,
+    CheckoutComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

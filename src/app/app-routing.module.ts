@@ -10,6 +10,8 @@ import { RegisterComponent } from './LoginSignup/register/register.component';
 import { BookpreviewComponent } from './Customers/bookpreview/bookpreview.component';
 import { AddbookComponent } from './Admin/addbook/addbook.component';
 import { AllbookComponent } from './Admin/allbook/allbook.component';
+import { CheckoutComponent } from './Customers/checkout/checkout.component';
+import { PaymentComponent } from './Customers/payment/payment.component';
 
 const routes: Routes = [
   {path:"userhomepage", component:UserHomePageComponent},
@@ -20,7 +22,9 @@ const routes: Routes = [
   {path:"preview",component:BookpreviewComponent},
   {path:"addbook",component:AddbookComponent},
   {path:"searchbookpage",component:SearchBookComponent},
-  {path:"allbook",component:AllbookComponent}
+  {path:"allbook",component:AllbookComponent},
+  {path:"checkoutpage",component:CheckoutComponent},
+  {path:"paymentpage",component:PaymentComponent}
 ];
 
 @NgModule({

@@ -81,4 +81,8 @@ export class ServiceLayerService {
   updateStock(data:any){
     return this.httpclient.put("Books/updateStock",data);
   }
+
+  addOrder(orderdata:any){
+    return this.httpclient.post("Books/insertOrder",orderdata)
+  }
 }
