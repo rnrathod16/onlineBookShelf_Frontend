@@ -81,4 +81,8 @@ export class ServiceLayerService {
   updateStock(data:any){
     return this.httpclient.put("Books/updateStock",data);
   }
+
+  getOrderhistory(id:any){
+    return this.httpclient.get("Books/list/users/orders/"+id);
+  }
 }
