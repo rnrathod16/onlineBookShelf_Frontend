@@ -13,6 +13,10 @@ import { AllbookComponent } from './Admin/allbook/allbook.component';
 import { CheckoutComponent } from './Customers/checkout/checkout.component';
 import { PaymentComponent } from './Customers/payment/payment.component';
 
+import { AddcategoryComponent } from './Admin/addcategory/addcategory.component';
+import { AllcategoryComponent } from './Admin/allcategory/allcategory.component';
+
+
 const routes: Routes = [
   {path:"userhomepage", component:UserHomePageComponent},
   {path:"myprofilepage", component:MyprofileComponent},
@@ -24,7 +28,10 @@ const routes: Routes = [
   {path:"searchbookpage",component:SearchBookComponent},
   {path:"allbook",component:AllbookComponent},
   {path:"checkoutpage",component:CheckoutComponent},
-  {path:"paymentpage",component:PaymentComponent}
+  {path:"paymentpage",component:PaymentComponent},
+  {path:"addcategory",component:AddcategoryComponent},
+  {path:"allcategory",component:AllcategoryComponent}
+
 ];
 
 @NgModule({

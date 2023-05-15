@@ -26,6 +26,8 @@ import { SearchBookComponent } from './Customers/search-book/search-book.compone
 import { AllbookComponent } from './Admin/allbook/allbook.component';
 import { CheckoutComponent } from './Customers/checkout/checkout.component';
 import { PaymentComponent } from './Customers/payment/payment.component';
+import { AddcategoryComponent } from './Admin/addcategory/addcategory.component';
+import { AllcategoryComponent } from './Admin/allcategory/allcategory.component';
 
 
 @NgModule({
@@ -45,7 +47,10 @@ import { PaymentComponent } from './Customers/payment/payment.component';
     SearchBookComponent,
     AllbookComponent,
     CheckoutComponent,
-    PaymentComponent
+    PaymentComponent,
+    AddcategoryComponent,
+    AllcategoryComponent
+
   ],
   imports: [
     BrowserModule,
