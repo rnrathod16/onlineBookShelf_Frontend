@@ -1,0 +1,123 @@
+<app-usernavbar>
+</app-usernavbar>
+<div class="container">
+    <form style="margin-top: 10%;" #address="ngForm" (ngSubmit)="getAddress(address.value)" novalidate>
+    <div class="form-group">
+        <div style="width: 47%;">
+            <label class="font-weight-bolder">Name</label>
+            <input type="text" class="form-control" name="uname" #uname="ngModel" ngModel  required>
+            <div>
+                <span *ngIf="uname.errors?.['required'] && uname.touched " style="color:red">Enter Name!</span>
+            </div>
+        </div><br>
+        <div style="width: 47%;">
+            <label class="font-weight-bolder">Address</label>
+            <input type="text" class="form-control" name="uadd" #uadd="ngModel" ngModel  required>
+            <div>
+                <span *ngIf="uadd.errors?.['required'] && uadd.touched " style="color:red">Enter Address!</span>
+            </div>
+        </div><br>
+        <div style="width: 47%;">
+            <label class="font-weight-bolder">Postal Code</label>
+            <input type="text" class="form-control" name="uzip" #uzip="ngModel" ngModel  required pattern="\d{6}">
+            <div>
+                <span *ngIf="uzip.errors?.['required'] && uzip.touched " style="color:red">Enter PostalCode</span>
+            </div>
+            <div>
+                <span *ngIf="uzip.errors?.['pattern']" style="color:red">Enter correct PostalCode!</span>
+            </div>
+        </div><br>
+        <div class="form-group">
+            <label class="font-weight-bolder">Countries</label>
+            <select name="ucountry" class="form-control" #ucountry="ngModel" ngModel required>
+                <option>--select--</option>
+                <option *ngFor="let cc of countryList">{{cc.name}}</option>
+            </select>
+            <div>
+                <span *ngIf="ucountry.errors?.['required'] && ucountry.touched " style="color:red">Please Select Your Country</span>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Save Address</button>
+    </div>
+
+</form>
+
+<br><br>
+<div style="width: 60%;height: 60%;border: 1px solid #eee;">
+    <h1>
+        Order Summary
+    </h1>
+
+    <div style="width: 50%;height: 70%; border: 1px solid #eee;">
+        <table>
+            <tr>
+                <td class="font-weight-bold text-center">Total Amount :</td>
+                <td class="font-weight-bold">{{sum | currency : "INR"}}</td>
+            </tr>
+            <tr>
+                <td class="text-center">Taxes :</td>
+                <td class="font-weight-bold">{{ taxes | currency : "INR"}}</td>
+            </tr>
+            <tr>
+                <td class="text-center">Delivery Charges :</td>
+                <td class="font-weight-bold">{{ dc | currency : "INR"}}</td>
+            </tr>
+            <tr>
+                <td class="text-center">To Pay :</td>
+                <td class="font-weight-bold">{{amt | currency : "INR"}}</td>
+            </tr>
+        </table>
+
+        <div>
+            <button (click)="placeOrder()" class="btn btn-primary">Proceed to Pay</button>
+        </div>
+
+        <div class="d-flex justify-content-center align-items-center" style="float: left;">
+            
+            <button class="btn btn-primary" (click)="backToCart()">Back</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<!--<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-4 mt-5">
+            <div class="card d-flex justify-content-center text-right pt-4 shadow-lg mb-5 bg-white rounded" style="width: 18rem;">
+                <img src="{{purchaseItem.bimg}}" class="card-img-top m-auto" alt="BookImage" style="height:10%;width:50%">
+                <div class="card-body">
+                    <p class="card-text text-center"><span class="font-weight-bold">{{purchaseItem.bname}}</span></p>
+                    <p class="card-text text-center"><span class="font-weight-bold">{{purchaseItem.bdesc}}</span></p>
+                    <p class="card-text text-center"><span class="font-weight-bold">Price : </span>{{purchaseItem.bprice | currency : "INR"}}</p>
+                </div> 
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<div>
+    <button class="btn btn-primary btn-l" (click)="proceed()">Proceed</button>
+</div>-->
+
+<!--<div class="container-fluid">
+    <div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Order Summary</h4>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+        <div class="form-check-inline">
+            <button class="btn btn-primary" (click)="plus()"><i class="fa-fa-plus"></i></button>
+        </div>
+        <div class="form-check-inline">
+            <input type="text" class="form-control" [{ngModel}]="quantity">
+        </div>
+        <div class="form-check-inline">
+            <button class="btn btn-primary" (click)="minus()"><i class="fa-fa-minus"></i></button>
+        </div>
+</div> -->

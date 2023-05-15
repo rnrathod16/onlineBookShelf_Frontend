@@ -1,0 +1,22 @@
+<app-usernavbar></app-usernavbar>
+
+<p>orderhistory works!</p>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-4 mt-5" *ngFor="let b of bookName">
+            <div class="card d-flex justify-content-center text-right pt-4 shadow-lg mb-5 bg-white rounded" style="width: 18rem;">
+                <img src="{{b.bimg}}" class="card-img-top m-auto" alt="BookImage" style="height:10%;width:50%">
+                <div class="card-body">
+                    <p class="card-text text-center"><span class="font-weight-bold">{{b.bname}}</span></p>
+                    <p class="card-text text-center"><span class="font-weight-bold">{{b.oquantity}}</span></p>
+                    <p class="card-text text-center"><span class="font-weight-bold">{{b.oamount}}</span></p>
+                    <p class="card-text text-center"><span class="font-weight-bold">{{b.oaddress}}</span></p>
+                    <p class="card-text text-center"><span class="font-weight-bold">{{b.uid}}</span></p>
+                    <p class="card-text text-center"><span class="font-weight-bold">{{b.bid}}</span></p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

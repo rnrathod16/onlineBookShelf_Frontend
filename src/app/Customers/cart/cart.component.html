@@ -18,26 +18,65 @@
     </div>
 </div>
 
-<br><br>
-<div>
-    <button class="btn btn-primary">Proceed to CheckOut</button>
-</div> -->
+ -->
 
 <div class="container mt-3">
-    <div class="row">
+    
         <div class="col-md-4 mt-5" *ngFor="let b of BooksInCart">
+            <div class="row">
             <div class="card d-flex justify-content-center text-right pt-4 shadow-lg mb-5 bg-white rounded" style="width: 18rem;">
                 <img src="{{b.bimg}}" class="card-img-top m-auto" alt="BookImage" style="height:10%;width:50%">
                 <div class="card-body">
                     <p class="card-text text-center"><span class="font-weight-bold">{{b.bname}}</span></p>
                     <p class="card-text text-center"><span class="font-weight-bold">{{b.bdesc}}</span></p>
                     <p class="card-text text-center"><span class="font-weight-bold">Price : </span>{{b.bprice | currency : "INR"}}</p>
-                    <div class="d-flex justify-content-center align-items-center">
-                        <button (click)="removeFromCart(b)" class="btn btn-danger">Remove From Cart</button>
+                </div>
+                <button (click)="removeFromCart(b)" class="btn btn-danger">Remove From Cart</button>
+            </div>
+        <div>
+            <button type="button" class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#t' + b.bid">Quantity</button>
+        </div>
+        <div class="modal fade" id="t{{b.bid}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title font-weight-bolder" id="exampleModalLabel">{{b.bname}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
+                    <form novalidate>
+                        <div class="modal-body">
+                            <div class="form-group d-flex justify-content-center align-items-start flex-column">
+                                <label class="font-weight-bolder text-left">Book Id</label>
+                                <input type="number" class="form-control" id="bid" value="{{b.bid}}" aria-describedby="bid" name="bid" #bid="ngModel" ngModel placeholder="{{b.bid}}" required disabled>
 
+                                <label class="font-weight-bolder text-left">Current Quantity: {{quantity}}</label>
+                                <input type="number" class="form-control" id="bq" aria-describedby="bq" name="bq" #bq="ngModel" ngModel placeholder="Enter Quanity to Add" required>
+                                <div>
+                                    <span *ngIf="bq.errors?.['required'] && bq.touched " style="color:red">Enter Stock to Add</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="callAgain()">Close</button>
+                            <button type="submit" class="btn btn-primary" (click)="increaseQuantity({bq:bq.value,bid:b.bid})">Add</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
+            
+        </div>
+
+        <div class="d-flex justify-content-center align-items-center" style="float: left;">
+            
+            <button class="btn btn-primary" (click)="purchaseCart()">Proceed to CheckOut</button>
+        </div>
+
+        
+        
+    </div>
+   
+    
