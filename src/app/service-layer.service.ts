@@ -66,6 +66,15 @@ export class ServiceLayerService {
     return this.httpclient.get("Books/list/categories");
   }
 
+  insertCateogery(data:any){
+    return this.httpclient.post("Books/insertCatogery",data);
+  }
+
+
+  deleteCategory(id:any){
+    return this.httpclient.delete("Books/categories"+id);
+  }
+
   addBooks(data:any){
     return this.httpclient.post("Books/list",data);
   }
@@ -82,7 +91,13 @@ export class ServiceLayerService {
     return this.httpclient.put("Books/updateStock",data);
   }
 
+
   getOrderhistory(id:any){
     return this.httpclient.get("Books/list/users/orders/"+id);
+  }
+
+  addOrder(orderdata:any){
+    return this.httpclient.post("Books/insertOrder",orderdata)
+
   }
 }

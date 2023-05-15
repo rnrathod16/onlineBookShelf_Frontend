@@ -24,7 +24,14 @@ import { AddbookComponent } from './Admin/addbook/addbook.component';
 import { NavbaradminComponent } from './Admin/navbaradmin/navbaradmin.component';
 import { SearchBookComponent } from './Customers/search-book/search-book.component';
 import { AllbookComponent } from './Admin/allbook/allbook.component';
+
 import { OrderhistoryComponent } from './Customers/orderhistory/orderhistory.component';
+
+import { CheckoutComponent } from './Customers/checkout/checkout.component';
+import { PaymentComponent } from './Customers/payment/payment.component';
+import { AddcategoryComponent } from './Admin/addcategory/addcategory.component';
+import { AllcategoryComponent } from './Admin/allcategory/allcategory.component';
+
 
 
 @NgModule({
@@ -43,7 +50,14 @@ import { OrderhistoryComponent } from './Customers/orderhistory/orderhistory.com
     NavbaradminComponent,
     SearchBookComponent,
     AllbookComponent,
-    OrderhistoryComponent
+    OrderhistoryComponent,
+
+    CheckoutComponent,
+    PaymentComponent,
+    AddcategoryComponent,
+    AllcategoryComponent
+
+
   ],
   imports: [
     BrowserModule,
