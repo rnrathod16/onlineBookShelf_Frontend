@@ -6,9 +6,18 @@ import { Injectable } from '@angular/core';
 })
 export class ServiceLayerService {
   bookData:any;
+  tsum:any;
 
   constructor(private httpclient:HttpClient) 
   { 
+  }
+
+  setsum(data:any){
+    this.tsum = data;
+  }
+
+  getsum(){
+    return this.tsum;
   }
 
   setBookData(data:any){

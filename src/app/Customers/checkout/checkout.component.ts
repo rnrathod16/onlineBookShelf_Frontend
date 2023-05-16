@@ -17,7 +17,7 @@ export class CheckoutComponent
   correctaddress:boolean=false;
   OrderList:any=[];
   amt:any
-  sum:any
+  sum:any;
   taxes=78.89;
   dc=60.00
   fulladd:any
@@ -28,7 +28,10 @@ export class CheckoutComponent
   }
  ngOnInit(){
     this.rd=localStorage.getItem("Totalsum")
-    this.sum=JSON.parse(this.rd)
+    console.log("proceed page"+this.rd);
+    
+    // this.sum+=JSON.parse(this.rd)
+    this.sum = this.ser.getsum();
     this.rd2=localStorage.getItem("AmountDetails")
     this.amt=JSON.parse(this.rd2)
     this.rd3=localStorage.getItem("booksPurchase")

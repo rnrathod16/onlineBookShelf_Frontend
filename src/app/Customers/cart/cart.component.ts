@@ -78,7 +78,7 @@ export class CartComponent
 
   checkoutCalculateSum()
 {
-    
+    this.total_sum = 0;
     for(let i=0;i<this.BooksInCart.length;i++)
     {
       this.ser.getOneBookFromCart(this.BooksInCart[i].bid,this.curuser.uid).subscribe((data)=>{
@@ -88,6 +88,7 @@ export class CartComponent
         console.log(this.BooksInCart[i].bprice)
         console.log("after"+this.total_sum)
         localStorage.setItem("Totalsum",JSON.stringify(this.total_sum));
+        this.ser.setsum(this.total_sum);
       }) 
       
     }
