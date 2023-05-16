@@ -15,7 +15,12 @@
                 <button (click)="removeFromCart(b)" class="btn btn-danger">Remove From Cart</button>
             </div>
         </div>
-        <p class="text-center">Current Quantity : {{b.bquantity}}</p>
+        <form class="form-group form-check-inline" #qtyForm="ngForm" (ngSubmit)="qtyDetails(b.bid,qtyForm.value)">
+            <label>Current Quantity</label>
+            <input style="width: 20%;" class="form-control" name="qty"  type="text" [(ngModel)]="b.bquantity">
+            <button class="btn btn-primary" type="submit">Save Quantity</button>
+        </form>
+        <!--<p class="text-center">Current Quantity : {{b.bquantity}}</p>
         <div class="form-check-inline">
             <button class="btn btn-primary" (click)="plus(b.bid)">+<i class="fa fa-plus"></i></button>
         </div>
@@ -25,7 +30,7 @@
         <div>
             <button class="btn btn-primary" (click)="minus(b.bid)">-<i class="fa fa-minus"></i></button>
         </div>
-    </div>
+    </div>-->
 
     <div class="d-flex justify-content-center align-items-center" style="float: left;">
 

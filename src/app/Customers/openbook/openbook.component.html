@@ -9,8 +9,9 @@
             <div class="p-5 shadow-lg p-3 mb-5 bg-white rounded">
                 <h1 class="font_col text-center mb-4 font-weight-bolder">{{book.bname}}</h1>
                 <h3 class="font_col text-center mb-4">{{book.bauthor}}</h3>
+                <h3 class="font_col text-center mb-4">{{book.bdesc}}</h3>
                 <h3 class="font_col text-center mb-4">{{book.bprice | currency : "INR"}}</h3>
-
+                <button (click)="addThisToCart(book.bid,book.bname)" class="btn btn-primary">Buy Now</button>
             </div>
         </div>
 

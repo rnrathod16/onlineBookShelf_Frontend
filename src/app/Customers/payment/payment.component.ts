@@ -52,7 +52,8 @@ export class PaymentComponent
     }
   };
 
-  paynow() {
+  paynow() 
+  {
     this.paymentId = '';
     this.error = '';
     this.options.amount = "100000"; //paise

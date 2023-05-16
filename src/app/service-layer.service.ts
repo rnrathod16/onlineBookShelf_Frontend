@@ -43,6 +43,10 @@ export class ServiceLayerService {
       return this.httpclient.get("Books/singleBookInWishList/"+bid+"/"+uid)
   }
 
+  reduceStocks(q:any,id:any){
+    return this.httpclient.get("Books/reduceStock/"+q+"/"+id)
+}
+
   updateOneBookQty(nb:any){
     return this.httpclient.put("Books/updateWishItem",nb);
   }

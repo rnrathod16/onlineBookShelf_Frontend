@@ -27,6 +27,7 @@ export class CartComponent
   rd:any;
   curuser:any;
   toggle:any;
+  //sendsum: void;
 
   constructor(private ser: ServiceLayerService,private route:Router){
     this.rd=localStorage.getItem("userdata");
@@ -68,8 +69,9 @@ export class CartComponent
               "bstock": this.curbook.bstock,
               "bstatus": this.curbook.bstatus,
               "cid": this.curbook.cid,
-              "bquantity": this.toggle ? this.IdsInCart[i].quantity+1 : this.IdsInCart[i].quantity-1
-        };
+              "bquantity": this.IdsInCart[i].quantity
+              //"bquantity": this.toggle ? (this.IdsInCart[i].quantity-1)+1 : (this.IdsInCart[i].quantity+1)-1
+                };
             this.BooksInCart.push(x)  
           })
         }
@@ -86,28 +88,29 @@ export class CartComponent
         this.total_sum=parseInt(this.total_sum)+(parseInt(this.BooksInCart[i].bprice)*parseInt(this.cwitem.quantity));
         console.log(this.cwitem.quantity)
         console.log(this.BooksInCart[i].bprice)
-        console.log("after"+this.total_sum)
-        localStorage.setItem("Totalsum",JSON.stringify(this.total_sum));
+        console.log("after"+this.total_sum) 
         this.ser.setsum(this.total_sum);
       }) 
-      
+      this.toPay=parseInt(this.total_sum)+parseInt(this.taxes)+parseInt(this.dc);
+      localStorage.setItem("booksPurchase",JSON.stringify(this.BooksInCart))
+      localStorage.setItem("AmountDetails",JSON.stringify(this.toPay));
     }
         
-    this.toPay=parseInt(this.total_sum)+parseInt(this.taxes)+parseInt(this.dc);
+    
 
-    localStorage.setItem("booksPurchase",JSON.stringify(this.BooksInCart))
- 
-    localStorage.setItem("AmountDetails",JSON.stringify(this.toPay));
-    this.route.navigateByUrl("checkoutpage");
+     
 }
   
 
   purchaseCart()
   {
-    this.checkoutCalculateSum();
-    console.log("totalSum:"+this.total_sum)
-    console.log("totalSum:"+this.toPay)
-    
+
+    // this.checkoutCalculateSum();
+    // localStorage.setItem("Totalsum",JSON.stringify(this.total_sum));
+     
+    // console.log("totalSum:"+this.total_sum)
+    localStorage.setItem("list", JSON.stringify(this.BooksInCart));
+    this.route.navigateByUrl("checkoutpage");
   }
 
   removeFromCart(b:any){
@@ -118,11 +121,19 @@ export class CartComponent
     });
   }
 
-  // getCurrentQuantity(){
-  //   this.ser.getOneBookFromCart(bid,this.curuser.uid).subscribe((data)=>{
-  //     this.citem=data;
-  //   })
-  // }
+  qtyDetails(bid:any,qtyForm:any)
+  {
+    
+    console.log(qtyForm);
+    this.ser.getOneBookFromCart(bid,this.curuser.uid).subscribe((data)=>{
+      this.citem=data;
+      this.citem.quantity =qtyForm.qty;
+      this.ser.updateOneBookQty(this.citem).subscribe((data)=>{
+        // this.qty=this.citem.quantity;
+      })
+    })
+    
+  }
 
   plus(bid:any)
   { 
