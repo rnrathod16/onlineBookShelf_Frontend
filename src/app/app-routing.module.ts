@@ -33,7 +33,8 @@ const routes: Routes = [
   {path:"checkoutpage",component:CheckoutComponent},
   {path:"paymentpage",component:PaymentComponent},
   {path:"addcategory",component:AddcategoryComponent},
-  {path:"allcategory",component:AllcategoryComponent}
+  {path:"allcategory",component:AllcategoryComponent},
+  {path:"orderhistory",component:OrderhistoryComponent}
 
 ];
 

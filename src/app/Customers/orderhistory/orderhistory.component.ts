@@ -47,16 +47,6 @@ export class OrderhistoryComponent {
       this.getBookById(this.bookId[i]);
     }
     
-    for(let i=0;i<this.userorderhistory.length;i++){
-      // console.log(this.userorderhistory[i].bid);
-      for(let j=0;j<this.userorderhistory.length;j++){
-          if(this.bookId[i] == this.bookName[j].bid){
-            console.log(this.bookName[j].bid);
-          }
-
-      }
-    
-    }
     console.log(this.bookName);
     })
 

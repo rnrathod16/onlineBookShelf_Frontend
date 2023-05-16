@@ -7,22 +7,22 @@
                 <div class="container">
                     <table class="table table-bordered table-stripped table-hover table-condensed">
                         <thead>
-                            <tr  class="bg-primary">
+                            <tr class="bg-primary">
                                 <th> Category Name</th>
                                 <th>Action</th>
-                               
+
                             </tr>
                         </thead>
                         <tbody class="bg-info">
                             <tr *ngFor="let c of categories">
                                 <td>{{c.cname | uppercase}}</td>
                                 <td>
-                                    <button class="btn btn-danger btn-md" (click)="deleteCategory({cname:c.cid})">Delete</button>
+                                    <button class="btn btn-danger btn-md" (click)="deleteCategory(c.cid)">Delete</button>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                    </div>
+                </div>
             </div>
         </div>
 
@@ -30,4 +30,4 @@
 
             <img src="assets/Images/Admin/addbook.svg" alt="SignupImage" style="width: 100%;height: 100%;">
         </div>
-        </div>
+    </div>
