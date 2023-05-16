@@ -65,8 +65,7 @@ export class OrderhistoryComponent {
   getBookById(id:any){
     this.ser.getBookById(id).subscribe((data) =>{
       // console.log(data);
-      this.bookName.push(data);
-    
+      this.bookName.push(data);    
     })
   }
 

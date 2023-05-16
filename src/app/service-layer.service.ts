@@ -102,4 +102,8 @@ export class ServiceLayerService {
   addOrder(orderdata:any){
     return this.httpclient.post("Books/insertOrder",orderdata)
   }
+
+  getuserbyemail(data:any){
+    return this.httpclient.post("Books/getuserbyemail",data);
+  }
 }
