@@ -17,6 +17,8 @@ import { PaymentComponent } from './Customers/payment/payment.component';
 
 import { AddcategoryComponent } from './Admin/addcategory/addcategory.component';
 import { AllcategoryComponent } from './Admin/allcategory/allcategory.component';
+import { UpdatebookComponent } from './Admin/updatebook/updatebook.component';
+import { UpdateComponent } from './Admin/update/update.component';
 
 
 
@@ -33,7 +35,9 @@ const routes: Routes = [
   {path:"checkoutpage",component:CheckoutComponent},
   {path:"paymentpage",component:PaymentComponent},
   {path:"addcategory",component:AddcategoryComponent},
-  {path:"allcategory",component:AllcategoryComponent}
+  {path:"allcategory",component:AllcategoryComponent},
+  {path:"updatebook",component:UpdatebookComponent},
+  {path:"update",component:UpdateComponent}
 
 ];
 

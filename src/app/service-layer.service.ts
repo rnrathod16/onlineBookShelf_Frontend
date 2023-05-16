@@ -54,6 +54,10 @@ export class ServiceLayerService {
     return this.httpclient.post("Books/login",data);
   }
 
+  updateBook(data:any){
+    return this.httpclient.put("Books/updateBook",data);
+  }
+
   searchUserByEmail(data:any){
     return this.httpclient.post("Books/getuser",data);
   }
@@ -72,7 +76,7 @@ export class ServiceLayerService {
 
 
   deleteCategory(id:any){
-    return this.httpclient.delete("Books/categories"+id);
+    return this.httpclient.delete("Books/categories/"+id);
   }
 
   addBooks(data:any){
