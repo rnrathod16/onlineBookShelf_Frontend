@@ -26,12 +26,20 @@ export class ServiceLayerService {
     console.log("in service: "+cartitem)
   }
 
-  getcart(){
-    return this.httpclient.get("Books/wish");
+  getcart(uid:any){
+    return this.httpclient.get("Books/wish/"+uid);
   }
 
-  deleteFromCart(id:any){
-    return this.httpclient.delete("Books/wishlist/"+id);
+  getOneBookFromCart(bid:any,uid:any){
+      return this.httpclient.get("Books/singleBookInWishList/"+bid+"/"+uid)
+  }
+
+  updateOneBookQty(nb:any){
+    return this.httpclient.put("Books/updateWishItem",nb);
+  }
+
+  deleteFromCart(uid:any,bid:any){
+    return this.httpclient.delete("Books/wishlist/"+bid+"/"+uid);
   }
 
   getCountries(){
@@ -60,6 +68,10 @@ export class ServiceLayerService {
 
   loginUser(data:any){
     return this.httpclient.post("Books/login",data);
+  }
+
+  updateBook(data:any){
+    return this.httpclient.put("Books/updateBook",data);
   }
 
   searchUserByEmail(data:any){

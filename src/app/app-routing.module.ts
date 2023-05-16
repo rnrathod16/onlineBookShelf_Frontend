@@ -18,6 +18,8 @@ import { PaymentComponent } from './Customers/payment/payment.component';
 import { AddcategoryComponent } from './Admin/addcategory/addcategory.component';
 import { AllcategoryComponent } from './Admin/allcategory/allcategory.component';
 import { OpenbookComponent } from './Customers/openbook/openbook.component';
+import { UpdatebookComponent } from './Admin/updatebook/updatebook.component';
+import { UpdateComponent } from './Admin/update/update.component';
 
 
 
@@ -36,8 +38,9 @@ const routes: Routes = [
   {path:"addcategory",component:AddcategoryComponent},
   {path:"allcategory",component:AllcategoryComponent},
   {path:"orderhistory",component:OrderhistoryComponent},
-  {path:"openbook",component:OpenbookComponent}
-
+  {path:"openbook",component:OpenbookComponent},
+  {path:"updatebook",component:UpdatebookComponent},
+  {path:"update",component:UpdateComponent}
 
 ];
 

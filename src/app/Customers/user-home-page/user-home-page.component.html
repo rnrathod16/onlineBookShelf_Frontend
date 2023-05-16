@@ -1,23 +1,45 @@
 <app-usernavbar></app-usernavbar>
-<!-- <div>
-    <div class="container-fluid">
-        <div class="row-md-1" *ngFor="let b of booklist" style="background-color:aqua;">
-            <div class="col-md-6" style="background-color:#C8CCC7;margin-bottom: 10%;height:50%">
-                <img src={{b.bimg}} width="30%" height="40%" style="float: left;">
-                <div style="float: left;margin: 8px">
-                    <h1>{{b.bname}}</h1>
-                    <p>{{b.bdesc}}</p>
-                    <button (click)="addThisToCart(b.bid,b.bname)" class="btn btn-primary">Add To Cart</button>
-                    <button class="btn btn-primary" style="float: left;margin-right: 5px;">Buy Now</button>
+<div class="container d-flex justify-content-center">
+    <div class="container w-25 mt-4 shadow p-3 mb-3 bg-white rounded">
+        <form #categoryForm="ngForm" (ngSubmit)="categoryDetail(categoryForm.value)" class="p-3">
+            <div class="form-group text-center">
+                <label class="font-weight-bolder">Select Category</label>
+                <select name="cid" class="form-control" #cid="ngModel" ngModel required>
+                    <option value="">Select Category</option>
+                    <option *ngFor="let c of bookCategories" value="{{c.cid}}">{{c.cname}}</option>
+                </select>
+            </div>
+            <div class="mt-4">
+                <button class="btn btn-success font-weight-bold btn_back" [disabled]="!categoryForm.valid" style="width:100%">Filter</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-4 mt-5" *ngFor="let bs of filterRes" (click)="moveToOpen(bs)">
+            <div class="card d-flex justify-content-center text-right pt-4 shadow-lg mb-5 bg-white rounded" style="width: 18rem;">
+                <img src="{{bs.bimg}}" class="card-img-top m-auto" alt="BookImage" style="height:10%;width:50%">
+                <div class="card-body">
+                    <p class="card-text text-center"><span class="font-weight-bold">{{bs.bname}}</span></p>
+                    <p class="card-text text-center"><span class="font-weight-bold">{{bs.bdesc}}</span></p>
+                    <p class="card-text text-center"><span class="font-weight-bold">Price : </span>{{bs.bprice | currency : "INR"}}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <button (click)="addThisToCart(bs.bid,bs.bname)" class="btn btn-primary">Add To Cart</button>
+                        <button class="btn btn-primary" style="float: left;margin-right: 5px;">Buy Now</button>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div> -->
+</div>
 
-<div class="container mt-3">
+
+<!-- <div class="container mt-3">
     <div class="row">
-        <div class="col-md-4 mt-5" *ngFor="let b of booklist" (click)="moveToOpen(b)">
+        <div class="col-md-4 mt-5" *ngFor="let b of booklist" >
             <div class="card d-flex justify-content-center text-right pt-4 shadow-lg mb-5 bg-white rounded" style="width: 18rem;">
                 <img src="{{b.bimg}}" class="card-img-top m-auto" alt="BookImage" style="height:10%;width:50%">
                 <div class="card-body">
@@ -33,4 +55,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
