@@ -31,6 +31,8 @@ import { CheckoutComponent } from './Customers/checkout/checkout.component';
 import { PaymentComponent } from './Customers/payment/payment.component';
 import { AddcategoryComponent } from './Admin/addcategory/addcategory.component';
 import { AllcategoryComponent } from './Admin/allcategory/allcategory.component';
+import { UpdatebookComponent } from './Admin/updatebook/updatebook.component';
+import { UpdateComponent } from './Admin/update/update.component';
 
 
 
@@ -55,7 +57,9 @@ import { AllcategoryComponent } from './Admin/allcategory/allcategory.component'
     CheckoutComponent,
     PaymentComponent,
     AddcategoryComponent,
-    AllcategoryComponent
+    AllcategoryComponent,
+    UpdatebookComponent,
+    UpdateComponent
 
 
   ],
