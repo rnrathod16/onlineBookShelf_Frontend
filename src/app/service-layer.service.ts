@@ -5,10 +5,18 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ServiceLayerService {
-
+  bookData:any;
 
   constructor(private httpclient:HttpClient) 
   { 
+  }
+
+  setBookData(data:any){
+    this.bookData = data;
+  }
+
+  getBookData(){
+    return this.bookData;
   }
 
   addToCart(cartitem:any)

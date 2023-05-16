@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ServiceLayerService } from 'src/app/service-layer.service';
+import * as CryptoJS from "crypto-js";
 
 @Component({
   selector: 'app-myprofile',
@@ -14,6 +15,9 @@ export class MyprofileComponent
   rd:any
   id:any
   uid:any;
+  encrPass:string="";
+  secretkey:string="Group6"
+
   fullDetails:any = {"uid":"","uname":"","uemail":"","upassword":"","umobile":"","ucountry":""};
   constructor(private ser:ServiceLayerService,private toastr: ToastrService,private route:Router){
 
@@ -36,6 +40,12 @@ export class MyprofileComponent
     })
   }
 
+  Encrypt(data:any){
+    this.encrPass = CryptoJS.AES.encrypt(data,this.secretkey).toString();
+    return this.encrPass;
+    
+   }
+
   updateUserData(data:any){
     console.log(data);
 
@@ -43,7 +53,7 @@ export class MyprofileComponent
     this.fullDetails.uid = this.uid;
     this.fullDetails.uname = data.uname;
     this.fullDetails.uemail = data.uemail;
-    this.fullDetails.upassword = data.upassword;
+    this.fullDetails.upassword = this.Encrypt(data.upassword);
     this.fullDetails.umobile = data.umobile;
     this.fullDetails.ucountry = data.ucountry;
     console.log(this.fullDetails);

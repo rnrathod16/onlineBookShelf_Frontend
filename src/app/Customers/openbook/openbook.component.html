@@ -1,0 +1,20 @@
+<app-usernavbar></app-usernavbar>
+<div class="container mt-5 center_div d-flex justify-content-center align-items-center">
+    <div class="row">
+        <div class="col-md-6">
+
+            <img src="{{book.bimg}}" alt="SignupImage" style="width: 100%;height: 100%;">
+        </div>
+        <div class="col-md-6">
+            <div class="p-5 shadow-lg p-3 mb-5 bg-white rounded">
+                <h1 class="font_col text-center mb-4 font-weight-bolder">{{book.bname}}</h1>
+                <h3 class="font_col text-center mb-4">{{book.bauthor}}</h3>
+                <h3 class="font_col text-center mb-4">{{book.bprice | currency : "INR"}}</h3>
+
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

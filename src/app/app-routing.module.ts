@@ -17,6 +17,7 @@ import { PaymentComponent } from './Customers/payment/payment.component';
 
 import { AddcategoryComponent } from './Admin/addcategory/addcategory.component';
 import { AllcategoryComponent } from './Admin/allcategory/allcategory.component';
+import { OpenbookComponent } from './Customers/openbook/openbook.component';
 
 
 
@@ -34,7 +35,9 @@ const routes: Routes = [
   {path:"paymentpage",component:PaymentComponent},
   {path:"addcategory",component:AddcategoryComponent},
   {path:"allcategory",component:AllcategoryComponent},
-  {path:"orderhistory",component:OrderhistoryComponent}
+  {path:"orderhistory",component:OrderhistoryComponent},
+  {path:"openbook",component:OpenbookComponent}
+
 
 ];
 

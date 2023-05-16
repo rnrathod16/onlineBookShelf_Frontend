@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { subscribeOn } from 'rxjs';
 import { ServiceLayerService } from 'src/app/service-layer.service';
 
 @Component({
@@ -10,53 +9,72 @@ import { ServiceLayerService } from 'src/app/service-layer.service';
   styleUrls: ['./orderhistory.component.css']
 })
 export class OrderhistoryComponent {
-
+                                                                                                                                                                                                           
   userorderhistory:any;
   userId:any;
   displayId:any;
   bookId:any=[];
-  bookName:any=[];
+  bookName:any=[];                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
   temp:any={"bname":"","oquantity":""};
   abcd:any;
-
+  bid:any;
+  orderDetails:any;
+  book:any;
 
   constructor(private ser:ServiceLayerService, private route:Router,private toastr: ToastrService){
-   
+
   }
 
   ngOnInit(){
     this.userId = localStorage.getItem("userdata");
     this.displayId = JSON.parse(this.userId).uid;    
-    this.getOrderHistory();
-
+    this.getOrderHistory(this.displayId);
   }
 
 
-  getOrderHistory (){
-
-    this.ser.getOrderhistory(this.displayId).subscribe((data) => {
+  getOrderHistory(info:any){
+    console.log(2);
+    
+    this.ser.getOrderhistory(info).subscribe((data) => {
     this.userorderhistory = data;
+    console.log(this.userorderhistory);
+    
     for(let i=0;i<this.userorderhistory.length;i++){
-      // console.log(this.userorderhistory[i].bid);
+      this.bid = this.userorderhistory[i].bid;
+      this.getBookById(this.bid);
+      // this.orderDetails.push({"bname":this.userorderhistory[i].oquantity,"oquantity":this.bookName[i].bname})
        this.bookId.push(this.userorderhistory[i].bid);
     }
-   
+
+
     console.log(this.bookId);
+    console.log(this.bookName);
+
+    console.log(this.bookName.length);
+    console.log(this.bookName);
+    console.log(this.userorderhistory[0]);
+
+  })
+  
+}
+
+getBookById(id:any){
+  console.log("1");
+  
+  this.ser.getBookById(id).subscribe((data) =>{
+    this.book = data;
+    console.log(this.book);
+    // this.bookName.push(this.book);
+
     for(let i=0;i<this.userorderhistory.length;i++){
-      // console.log(this.userorderhistory[i].bid);
-      this.getBookById(this.bookId[i]);
+      if(this.userorderhistory[i].bid == this.book.bid){
+        this.bookName.push({"book":this.book,"orders":this.userorderhistory[i]});
+      }
     }
     
-    console.log(this.bookName);
-    })
-
-  }
-
-  getBookById(id:any){
-    this.ser.getBookById(id).subscribe((data) =>{
-      // console.log(data);
-      this.bookName.push(data);    
+    
     })
   }
+
 
 }

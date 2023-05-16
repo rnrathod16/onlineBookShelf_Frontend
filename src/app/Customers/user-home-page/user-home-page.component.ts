@@ -47,6 +47,11 @@ export class UserHomePageComponent {
 
   }
 
+  moveToOpen(data:any){
+    console.log(data);
+   this.ser.setBookData(data);
+    this.route.navigateByUrl("openbook");
+  }
 
   ngOnInit(){
     this.getAllBooks();
