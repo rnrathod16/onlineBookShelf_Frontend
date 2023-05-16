@@ -1,0 +1,25 @@
+<app-navbaradmin></app-navbaradmin>
+    
+<div class="container">
+    <table class="table table-bordered table-stripped table-hover table-condensed">
+        <thead>
+            <tr  class="bg-primary">
+                <th>Book Name</th>
+                <th>Author</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody class="bg-info">
+            <tr *ngFor="let c of books">
+                <td>{{c.bname | uppercase}}</td>
+                <td>{{c.bauthor | uppercase}}</td>
+                <td>
+                    <button class="btn btn-danger btn-md" routerLink="/update" >Update</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+ 
