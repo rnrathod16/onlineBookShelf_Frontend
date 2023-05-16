@@ -36,8 +36,6 @@ export class AllbookComponent {
       }     
     })
     console.log(this.filterRes);
-    
-    
   }
 
   callAgain(){

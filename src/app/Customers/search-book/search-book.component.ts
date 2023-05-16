@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { ServiceLayerService } from 'src/app/service-layer.service';
 
 @Component({
@@ -14,6 +15,10 @@ export class SearchBookComponent {
   bookdetail:any;
   searchedBooks:any;
   searchedBooks2:any;
+  rd: any;
+  user: any;
+  currentWishList: any=[];
+  ifexist: boolean=false;
 
 
   ngOnInit(){
@@ -28,7 +33,7 @@ export class SearchBookComponent {
     this.userName = localStorage.getItem("userdata");
     this.displayName = JSON.parse(this.userName).uname;  
   }
-  constructor(private ser:ServiceLayerService){
+  constructor(private ser:ServiceLayerService,private toastr: ToastrService){
     // this.searchedBooks=[];
   }
 
@@ -59,7 +64,41 @@ export class SearchBookComponent {
         this.searchedBooks=data;
         
       })
-    
+  }
+
+  addThisToCart(bid:any,bname:any)
+  {
+    this.rd=localStorage.getItem("userdata");
+    this.user=JSON.parse(this.rd);
+    this.ser.getcart(this.user.uid).subscribe((data)=>{
+      this.currentWishList=data;
+      for(let x=0;x<this.currentWishList.length;x++){
+        if(bid==this.currentWishList[x].bid){
+            this.ifexist=true;
+            console.log(this.ifexist);
+        }
+      }
+      if(!this.ifexist)
+    {
+      console.log("in not exist part")
+      let cartobject={
+        "bid": bid,
+        "uid": this.user.uid,
+        "quantity":1
+
+      }
+      this.ser.addToCart(cartobject).subscribe((data)=>{
+  
+      });
+      this.toastr.success(bname+" has been Added To Cart!");
+    }
+    else
+    {
+      console.log("in exist part")
+      alert("already exists")
+      //this.toastr.success(bname+" aLready exists in cart!");
+    }
+    })
   }
 
 }

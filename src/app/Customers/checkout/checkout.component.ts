@@ -14,6 +14,7 @@ export class CheckoutComponent
   rd2:any;
   rd3:any;
   rd4:any;
+  correctaddress:boolean=false;
   OrderList:any=[];
   amt:any
   sum:any
@@ -35,6 +36,7 @@ export class CheckoutComponent
     console.log(this.OrderList)
     this.rd4=localStorage.getItem("userdata")
     this.curUser=JSON.parse(this.rd4)
+    console.log("in checkout"+this.sum)
   }
 
   getCountry(){
@@ -46,6 +48,7 @@ export class CheckoutComponent
   getAddress(addressValues:any){
 
     this.fulladd=addressValues.uname +" "+addressValues.uadd+" "+addressValues.uzip+" "+addressValues.ucountry;
+    this.correctaddress=true;
   }
 
   backToCart(){

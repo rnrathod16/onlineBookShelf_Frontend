@@ -37,7 +37,7 @@
                 <span *ngIf="ucountry.errors?.['required'] && ucountry.touched " style="color:red">Please Select Your Country</span>
             </div>
         </div>
-        <button class="btn btn-primary" type="submit">Save Address</button>
+        <button class="btn btn-primary" type="submit" [disabled]="!address.valid">Save Address</button>
     </div>
 
 </form>
@@ -69,7 +69,7 @@
         </table>
 
         <div>
-            <button (click)="placeOrder()" class="btn btn-primary">Proceed to Pay</button>
+            <button (click)="placeOrder()" class="btn btn-primary" [disabled]="!correctaddress">Proceed to Pay</button>
         </div>
 
         <div class="d-flex justify-content-center align-items-center" style="float: left;">
