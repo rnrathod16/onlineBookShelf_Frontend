@@ -17,7 +17,7 @@
                             <tr *ngFor="let c of categories">
                                 <td>{{c.cname | uppercase}}</td>
                                 <td>
-                                    <button class="btn btn-danger btn-md" (click)="deleteCategory({cname:c.cid})">Delete</button>
+                                    <button class="btn btn-danger btn-md" (click)="deleteCategory(c.cid)">Delete</button>
                                 </td>
                             </tr>
                         </tbody>

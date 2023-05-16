@@ -72,7 +72,7 @@ export class ServiceLayerService {
 
 
   deleteCategory(id:any){
-    return this.httpclient.delete("Books/categories"+id);
+    return this.httpclient.delete("Books/categories/"+id);
   }
 
   addBooks(data:any){

@@ -35,9 +35,9 @@ export class AddbookComponent {
     let formData = new FormData();
 
     formData.set("file",this.file);
-    formData.set("upload_preset","onlinebookshelf");
-    formData.set("cloud_name","dfgn4mltu")
-    this.http.post("https://api.cloudinary.com/v1_1/dfgn4mltu/upload",formData).subscribe((info)=>{
+    formData.set("upload_preset","OnlineBookShelf");
+    formData.set("cloud_name","dcfurzp7d")
+    this.http.post("https://api.cloudinary.com/v1_1/dcfurzp7d/upload",formData).subscribe((info)=>{
       console.log(info);
       this.bookImgUrl = info;
       console.log(this.bookImgUrl.url);
