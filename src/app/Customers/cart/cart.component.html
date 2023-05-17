@@ -26,7 +26,13 @@
                     <button (click)="removeFromCart(b)" class="btn btn-danger">Remove From Cart</button>
                 </div>
             </div>
+        </div>
 
+        <div class="d-flex justify-content-center align-items-center mt-4" style="float: left;">
+            <button class="btn btn-success" (click)="purchaseCart()">Proceed to CheckOut</button>
+        </div>
+    </div>
+</div>
             <!--<p class="text-center">Current Quantity : {{b.bquantity}}</p>
         <div class="form-check-inline">
             <button class="btn btn-primary" (click)="plus(b.bid)">+<i class="fa fa-plus"></i></button>
@@ -42,11 +48,8 @@
 
 
 
-        </div>
-        <div class="d-flex justify-content-center align-items-center mt-4" style="float: left;">
-            <button class="btn btn-success" (click)="purchaseCart()">Proceed to CheckOut</button>
-        </div>
-    </div>
+        
+        
 
 
     <!--<div>

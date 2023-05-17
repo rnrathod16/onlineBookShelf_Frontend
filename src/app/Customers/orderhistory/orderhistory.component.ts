@@ -76,5 +76,8 @@ getBookById(id:any){
     })
   }
 
+  back(){
+    this.route.navigateByUrl("userhomepage")
+  }
 
 }
