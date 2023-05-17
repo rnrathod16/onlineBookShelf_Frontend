@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ServiceLayerService } from 'src/app/service-layer.service';
 
 @Component({
@@ -29,7 +30,7 @@ export class CartComponent
   toggle:any;
   //sendsum: void;
 
-  constructor(private ser: ServiceLayerService,private route:Router){
+  constructor(private ser: ServiceLayerService,private route:Router, private toastr: ToastrService){
     this.rd=localStorage.getItem("userdata");
     this.curuser=JSON.parse(this.rd)
   }
@@ -130,41 +131,42 @@ export class CartComponent
       this.citem.quantity =qtyForm.qty;
       this.ser.updateOneBookQty(this.citem).subscribe((data)=>{
         // this.qty=this.citem.quantity;
+        this.toastr.success("Quantity updated!")
       })
     })
     
   }
 
-  plus(bid:any)
-  { 
-    this.toggle = true;
-    this.ser.getOneBookFromCart(bid,this.curuser.uid).subscribe((data)=>{
-      this.citem=data;
-      console.log(this.citem);
-      this.citem.quantity += 1;
-      this.ser.updateOneBookQty(this.citem).subscribe((data)=>{
-        // this.qty=this.citem.quantity;
-      })
-      console.log(this.citem);
+  // plus(bid:any)
+  // { 
+  //   this.toggle = true;
+  //   this.ser.getOneBookFromCart(bid,this.curuser.uid).subscribe((data)=>{
+  //     this.citem=data;
+  //     console.log(this.citem);
+  //     this.citem.quantity += 1;
+  //     this.ser.updateOneBookQty(this.citem).subscribe((data)=>{
+  //       // this.qty=this.citem.quantity;
+  //     })
+  //     console.log(this.citem);
       
-    })
-    this.ngOnInit();
-  }
+  //   })
+  //   this.ngOnInit();
+  // }
 
-  minus(bid:any){
-    this.toggle = false;
-    this.ser.getOneBookFromCart(bid,this.curuser.uid).subscribe((data)=>{
-      this.citem=data;
-      console.log(this.citem);
+  // minus(bid:any){
+  //   this.toggle = false;
+  //   this.ser.getOneBookFromCart(bid,this.curuser.uid).subscribe((data)=>{
+  //     this.citem=data;
+  //     console.log(this.citem);
       
-      this.citem.quantity -= 1;
-      this.ser.updateOneBookQty(this.citem).subscribe((data)=>{})
-      // this.qty=this.citem.quantity;
-      console.log(this.citem);
-    })
+  //     this.citem.quantity -= 1;
+  //     this.ser.updateOneBookQty(this.citem).subscribe((data)=>{})
+  //     // this.qty=this.citem.quantity;
+  //     console.log(this.citem);
+  //   })
 
-    this.ngOnInit();
-  }
+  //   this.ngOnInit();
+  // }
 }
 
 

@@ -17,9 +17,9 @@ export class BookpreviewComponent {
       this.bookByStatus = info;
       console.log(this.bookByStatus[0].bstatus);
       
-      if(this.bookByStatus[0].bstatus == "free"){
+      if(this.bookByStatus[0].bstatus.toUpperCase() == "FREE" ){
         this.disableDownload = true;
-      }else if(this.bookByStatus[0].bstatus == "paid"){
+      }else if(this.bookByStatus[0].bstatus.toUpperCase() == "PAID"){
         this.disableDownload = false;
       }
       

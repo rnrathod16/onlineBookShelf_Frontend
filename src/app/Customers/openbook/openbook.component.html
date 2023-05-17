@@ -1,18 +1,20 @@
 <app-usernavbar></app-usernavbar>
 <div class="container-fluid mt-5 center_div d-flex justify-content-around align-items-center">
-    <div class>
-
-        <img src="{{book.bimg}}" alt="SignupImage" style="width: 116%;height: 100%;">
+    <div class="row" style="width: 100%;height: 80%;">
+    <div class="col-md-4 d-flex justify-content-center align-items-center">
+        <img src="{{book.bimg}}" alt="SignupImage" style="width: 100%;height: 90%;">
     </div>
-    <div style="width:70%">
+    <div class="col-md-6 d-flex justify-content-center align-items-center">
         <div class="p-5 shadow-lg p-3 mb-5 bg-white rounded">
             <h1 class="font_col text-center mb-4 font-weight-bolder">{{book.bname}}</h1>
-            <h3 class="font_col text-center mb-4">{{book.bauthor}}</h3>
-            <h3 class="font_col text-center mb-4">{{book.bdesc}}</h3>
-            <h3 class="font_col text-center mb-4">{{book.bprice | currency : "INR"}}</h3>
-            <button (click)="addThisToCart(book.bid,book.bname)" class="btn btn-primary">Buy Now</button>
+            <h4 class="font_col text-center mb-4">{{book.bdesc}}</h4>
+            <br><br>
+            <h4 class="font_col">{{book.bauthor}}</h4>
+            <h5 class="font_col">{{book.bprice | currency : "INR"}}</h5>
+            <h5 class="font_col">Available: {{book.bstock}}</h5>
+            <button (click)="addThisToCart(book.bid,book.bname)" class="btn btn-primary btn-lg">Buy Now</button>
+            <button (click)="back()" class="btn btn-primary btn-lg" style="margin-left: 5%;">Back</button>
         </div>
     </div>
-
-
+    </div>
 </div>

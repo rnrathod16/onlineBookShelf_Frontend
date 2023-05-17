@@ -34,38 +34,6 @@
                 </div>
             </div>
         </div>
-        <div class="form-group d-flex justify-content-between">
-            
-            <div style="width: 47%;">
-                <label class="font-weight-bolder">Book Stock</label>
-                <input type="number" class="form-control" name="bstock" #bstock="ngModel" ngModel [(ngModel)]="updatedetails.bstock" placeholder="Please Enter Book Price" required>
-                <div>
-                    <span *ngIf="bstock.errors?.['required'] && bstock.touched " style="color:red">Please Enter Book Price</span>
-                </div>
-            </div>
-        </div>
-
-        
-
-        <div class="form-group d-flex justify-content-between">
-            <div style="width: 47%;">
-                <label class="font-weight-bolder">Book Status</label>
-                <select name="bstatus" class="form-control" #bstatus="ngModel" ngModel [(ngModel)]="updatedetails.bstatus" required>
-        <option value="">Select Status</option>
-        <option value="free">Free</option>
-        <option value="paid">Paid</option>
-    </select>
-
-                <div>
-                    <span *ngIf="bstatus.errors?.['required'] && bstatus.touched " style="color:red">Select Book Status</span>
-                </div>
-            </div>
-         
-        </div>
-
-        <div class="form-group">
-
-        </div>
 
         <div class="mt-4">
             <button class="btn btn-primary font-weight-bold btn_back" [disabled]=""  style="width:100%">Update Book</button>

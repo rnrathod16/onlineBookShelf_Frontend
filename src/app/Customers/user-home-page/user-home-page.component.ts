@@ -65,7 +65,7 @@ export class UserHomePageComponent {
     else
     {
       console.log("in exist part")
-      alert("already exists")
+      this.toastr.warning(bname+" already exists in cart!")
       //this.toastr.success(bname+" aLready exists in cart!");
     }
     })

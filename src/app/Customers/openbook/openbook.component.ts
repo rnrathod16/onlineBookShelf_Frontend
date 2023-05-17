@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ServiceLayerService } from 'src/app/service-layer.service';
 
@@ -14,7 +15,7 @@ export class OpenbookComponent {
   user: any;
   currentWishList: any=[];
   ifexist:boolean=false
-  constructor(private ser:ServiceLayerService,private toastr: ToastrService){}
+  constructor(private ser:ServiceLayerService,private toastr: ToastrService, private route:Router){}
 
   ngOnInit(){
     this.bookDetails();
@@ -59,4 +60,8 @@ export class OpenbookComponent {
     }
     })
   }
+  back(){
+    this.route.navigateByUrl("userhomepage")
+  }
+
 }
