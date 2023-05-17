@@ -4,6 +4,7 @@
     <table class="table table-bordered table-stripped table-hover table-condensed">
         <thead>
             <tr  class="bg-primary">
+                <th>id</th>
                 <th>Book Name</th>
                 <th>Author</th>
                 <th>Action</th>
@@ -11,10 +12,11 @@
         </thead>
         <tbody class="bg-info">
             <tr *ngFor="let c of books">
+                <td>{{c.bid}}</td>
                 <td>{{c.bname | uppercase}}</td>
                 <td>{{c.bauthor | uppercase}}</td>
                 <td>
-                    <button class="btn btn-danger btn-md" routerLink="/update" >Update</button>
+                    <button class="btn btn-danger btn-md" (click)="getbookbyid(c.bid)" >Update</button>
                 </td>
             </tr>
         </tbody>

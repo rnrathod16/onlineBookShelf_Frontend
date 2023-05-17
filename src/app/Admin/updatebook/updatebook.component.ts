@@ -19,7 +19,7 @@ export class UpdatebookComponent {
   bookCategories:any;
 
 
-  constructor(private service:ServiceLayerService,private http:HttpClient,private toastr: ToastrService){
+  constructor(private service:ServiceLayerService,private route:Router,private http:HttpClient,private toastr: ToastrService){
    
   }
   ngOnInit()
@@ -44,29 +44,12 @@ export class UpdatebookComponent {
     this.service.getBookById(id).subscribe((data) =>{
       // console.log(data);
       this.book=data;
-    
+      localStorage.setItem("Adminupdate",JSON.stringify(this.book));
+      this.route.navigateByUrl("update");
     })
   }
 
-  updateBook = async (data:any)=>{
-
-    data.set("file",this.file);
-    data.set("upload_preset","onlinebookshelf");
-    data.set("cloud_name","dfgn4mltu")
-    this.http.post("https://api.cloudinary.com/v1_1/dfgn4mltu/upload",data).subscribe((info)=>{
-      console.log(info);
-      this.bookImgUrl = info;
-      console.log(this.bookImgUrl.url);
-      data.bimg = this.bookImgUrl.url;
-      this.bookData = data;
-
-      this.service.updateBook(data).subscribe((info)=>{
-        console.log(info);
-        this.toastr.success(data.bname+" Updated Success")
-      })
-    });
-  
-  }
+ 
  
 
 

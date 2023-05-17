@@ -16,7 +16,8 @@ export class AddcategoryComponent {
   }
   addCategory(data:any){
     this.service.insertCateogery(data).subscribe((info)=>{
-      alert ("Added");
+      console.log(info);
+      this.toastr.success("Category Added");
     })
 
   }

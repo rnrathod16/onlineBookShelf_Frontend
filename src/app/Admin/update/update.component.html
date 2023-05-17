@@ -1,65 +1,56 @@
 <app-navbaradmin></app-navbaradmin>
-<div>
-    <form #updateForm="ngForm" (ngSubmit)="update(updateForm.value)" *ngFor="let b of book" novalidate>
+<div class="container">
+    <form #updateBookForm="ngForm" (ngSubmit)="update(updateBookForm.value)" novalidate>
 
         <div class="form-group d-flex justify-content-between">
             <div style="width: 47%;">
                 <label class="font-weight-bolder">Book Name</label>
-                <input type="text" class="form-control" name="bname" #bname="ngModel" ngModel placeholder="{{b.bname}}" required>
+                <input type="text" class="form-control" name="bname" #bname="ngModel" ngModel [(ngModel)]="updatedetails.bname" placeholder=" " required>
                 <div>
-                    <span *ngIf="bname.errors?.['required'] && bname.touched " style="color:red">{{b.bname}}</span>
+                    <span *ngIf="bname.errors?.['required'] && bname.touched " style="color:red">Enter Book Name</span>
                 </div>
             </div>
             <div style="width: 47%;">
                 <label class="font-weight-bolder">Book Description</label>
-                <input type="text" class="form-control" name="bdesc" #bdesc="ngModel" ngModel placeholder="{{b.bdesc}}" required>
+                <input type="text" class="form-control" name="bdesc" #bdesc="ngModel" ngModel [(ngModel)]="updatedetails.bdesc" placeholder="Enter Book Description" required>
                 <div>
-                    <span *ngIf="bdesc.errors?.['required'] && bdesc.touched " style="color:red">{{b.bdesc}}</span>
+                    <span *ngIf="bdesc.errors?.['required'] && bdesc.touched " style="color:red">Enter Book Description</span>
                 </div>
             </div>
         </div>
         <div class="form-group d-flex justify-content-between">
             <div style="width: 47%;">
                 <label class="font-weight-bolder">Book Price</label>
-                <input type="number" class="form-control" name="bprice" #bprice="ngModel" ngModel placeholder="{{b.bprice}}" required>
+                <input type="number" class="form-control" name="bprice" #bprice="ngModel" ngModel [(ngModel)]="updatedetails.bprice" placeholder="Please Enter Book Price" required>
                 <div>
                     <span *ngIf="bprice.errors?.['required'] && bprice.touched " style="color:red">Please Enter Book Price</span>
                 </div>
             </div>
             <div style="width: 47%;">
                 <label class="font-weight-bolder">Book Author</label>
-                <input type="text" class="form-control" name="bauthor" #bauthor="ngModel" ngModel placeholder="{{b.bauthor}}" required>
+                <input type="text" class="form-control" name="bauthor" #bauthor="ngModel" ngModel [(ngModel)]="updatedetails.bauthor" placeholder="Enter Name of Author" required>
                 <div>
                     <span *ngIf="bauthor.errors?.['required'] && bauthor.touched " style="color:red">Enter Name of Author</span>
                 </div>
             </div>
         </div>
         <div class="form-group d-flex justify-content-between">
-            <div style="width: 47%;">
-                <label class="font-weight-bolder">Publish Date</label>
-                <input type="date" class="form-control" name="bpublishdate" #bpublishdate="ngModel" ngModel placeholder="{{b.bpublishdate}}" required>
-                <div>
-                    <span *ngIf="bpublishdate.errors?.['required'] && bpublishdate.touched " style="color:red">{{b.bpublishdate}}</span>
-                </div>
-            </div>
+            
             <div style="width: 47%;">
                 <label class="font-weight-bolder">Book Stock</label>
-                <input type="number" class="form-control" name="bstock" #bstock="ngModel" ngModel placeholder="{{b.bprice}}" required>
+                <input type="number" class="form-control" name="bstock" #bstock="ngModel" ngModel [(ngModel)]="updatedetails.bstock" placeholder="Please Enter Book Price" required>
                 <div>
                     <span *ngIf="bstock.errors?.['required'] && bstock.touched " style="color:red">Please Enter Book Price</span>
                 </div>
             </div>
         </div>
 
-        <div class="form-group">
-            <label class="font-weight-bolder">Book Image</label>
-            <input type="file" class="form-control" name="bimg" #bimg="ngModel" ngModel placeholder="Add Image" (change)="getFile($event)" required>
-        </div>
+        
 
         <div class="form-group d-flex justify-content-between">
             <div style="width: 47%;">
                 <label class="font-weight-bolder">Book Status</label>
-                <select name="bstatus" class="form-control" #bstatus="ngModel" ngModel required>
+                <select name="bstatus" class="form-control" #bstatus="ngModel" ngModel [(ngModel)]="updatedetails.bstatus" required>
         <option value="">Select Status</option>
         <option value="free">Free</option>
         <option value="paid">Paid</option>
@@ -69,17 +60,7 @@
                     <span *ngIf="bstatus.errors?.['required'] && bstatus.touched " style="color:red">Select Book Status</span>
                 </div>
             </div>
-            <div style="width: 47%;">
-                <label class="font-weight-bolder">Book Categories</label>
-                <select name="cid" class="form-control" #cid="ngModel" ngModel required>
-        <option value="">Select Category</option>
-        <option *ngFor="let ca of bookCategories" value="{{ca.cid}}">{{ca.cname}}</option>
-    </select>
-
-                <div>
-                    <span *ngIf="cid.errors?.['required'] && cid.touched " style="color:red">Please Enter Your Country</span>
-                </div>
-            </div>
+         
         </div>
 
         <div class="form-group">
@@ -87,9 +68,8 @@
         </div>
 
         <div class="mt-4">
-            <button class="btn btn-primary font-weight-bold btn_back" [disabled]="!updateForm.valid" style="width:100%">Update Book</button>
+            <button class="btn btn-primary font-weight-bold btn_back" [disabled]=""  style="width:100%">Update Book</button>
         </div>
     </form>
-
 </div>
        

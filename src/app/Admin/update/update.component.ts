@@ -15,7 +15,8 @@ export class UpdateComponent {
   bookImgUrl:any;
   bookData:any;
   bookCategories:any;
-
+  rd:any;
+  updatedetails:any;
 
   constructor(private service:ServiceLayerService,private http:HttpClient,private toastr: ToastrService){
    
@@ -27,33 +28,22 @@ export class UpdateComponent {
       this.bookCategories = data;
       
     })
+
+    this.rd=localStorage.getItem("Adminupdate");
+    this.updatedetails=JSON.parse(this.rd);
     
   }
   getFile(event:any){
     this.file = event.target.files[0];
   }
 
-
- 
-
-  update = async (data:any)=>{
-
-    data.set("file",this.file);
-    data.set("upload_preset","onlinebookshelf");
-    data.set("cloud_name","dfgn4mltu")
-    this.http.post("https://api.cloudinary.com/v1_1/dfgn4mltu/upload",data).subscribe((info)=>{
-      console.log(info);
-      this.bookImgUrl = info;
-      console.log(this.bookImgUrl.url);
-      data.bimg = this.bookImgUrl.url;
-      this.bookData = data;
-
-      this.service.updateBook(data).subscribe((info)=>{
+  update(data:any){
+      this.updatedetails.bname=data.bname;
+      console.log(this.updatedetails);
+      this.service.updateBook(this.updatedetails).subscribe((info)=>{
         console.log(info);
-        this.toastr.success(data.bname+" Updated Success")
+        this.toastr.success(data.bname+" Updated Success");
       })
-    });
-  
-  }
+    };
 
-}
+  }
