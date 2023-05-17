@@ -22,7 +22,7 @@ export class LoginComponent {
 
   loginuserDetails:any={"uemail":"","upassword":""};
   constructor(private service:ServiceLayerService,private route:Router,private toastr: ToastrService){
-    this.Decrypt("Ritesh")
+    // this.Decrypt("Ritesh")
   }
 
 
@@ -34,12 +34,6 @@ export class LoginComponent {
     return dec;
     
   }
-
-  Encrypt(data:any){
-    this.encrPass = CryptoJS.AES.encrypt(data,this.secretkey).toString();
-    return this.encrPass;
-    
-   }
 
   loginDetails(data:any){
 

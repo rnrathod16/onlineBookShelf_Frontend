@@ -1,23 +1,23 @@
 <app-navbaradmin></app-navbaradmin>
-<div class="container center_div d-flex justify-content-center align-items-center">
+<div class="container center_div d-flex justify-content-center align-items-center" style="width:100vw;height:80vh">
     <div class="row mt-5">
-        <div class="col-md-6">
+        <div class="col-md-6 d-flex justify-content-center align-items-center">
             <div class="p-5 shadow-lg p-3 mb-5 bg-white rounded">
-                <h1 class="font_col text-center mb-4 font-weight-bolder" style="color:blue;">Delete Categories</h1>
+                <h1 class="font_col text-center mb-4 font-weight-bolder" style="color:#6C63FF;">Delete Categories</h1>
                 <div class="container">
                     <table class="table table-bordered table-stripped table-hover table-condensed">
                         <thead>
-                            <tr class="bg-primary">
-                                <th> Category Name</th>
-                                <th>Action</th>
+                            <tr class="" style="background-color: #6C63FF;">
+                                <th style="color: white;" class="text-center"> Category Name</th>
+                                <th style="color: white;" class="text-center">Action</th>
 
                             </tr>
                         </thead>
-                        <tbody class="bg-info">
-                            <tr *ngFor="let c of categories">
-                                <td>{{c.cname | uppercase}}</td>
-                                <td>
-                                    <button class="btn btn-danger btn-md" (click)="deleteCategory(c.cid)">Delete</button>
+                        <tbody>
+                            <tr *ngFor="let c of categories ">
+                                <td class="text-center">{{c.cname | uppercase}}</td>
+                                <td class="text-center">
+                                    <button class="btn btn-danger btn-sm font-weight-bold" (click)="deleteCategory(c.cid) ">Delete</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -26,8 +26,8 @@
             </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-6 ">
 
-            <img src="assets/Images/Admin/addbook.svg" alt="SignupImage" style="width: 100%;height: 100%;">
+            <img src="assets/Images/Admin/deletecategory.svg " alt="SignupImage " style="width: 73%;height: 87%;margin-left: 30%; ">
         </div>
     </div>

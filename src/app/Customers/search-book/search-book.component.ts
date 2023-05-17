@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {  Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ServiceLayerService } from 'src/app/service-layer.service';
 
@@ -33,7 +34,13 @@ export class SearchBookComponent {
     this.userName = localStorage.getItem("userdata");
     this.displayName = JSON.parse(this.userName).uname;  
   }
-  constructor(private ser:ServiceLayerService,private toastr: ToastrService){
+  logoutUser(){
+    window.localStorage.clear();
+    this.toastr.success("User Logged Out");
+    this.route.navigateByUrl("/");
+  }
+
+  constructor(private route:Router, private ser:ServiceLayerService,private toastr: ToastrService){
     // this.searchedBooks=[];
   }
 

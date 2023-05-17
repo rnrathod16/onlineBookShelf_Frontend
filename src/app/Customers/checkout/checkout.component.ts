@@ -138,10 +138,11 @@ export class CheckoutComponent
       }
       this.ser.addOrder(orderItem).subscribe((data)=>{
           console.log(data)
+          this.ser.reduceStocks(orderItem.oquantity,orderItem.bid).subscribe((data)=>{
+            console.log(data);      
+          });
       })
-      this.ser.reduceStocks(orderItem.oquantity,orderItem.bid).subscribe((data)=>{
-        
-      });
+      
     }
     
     this.route.navigateByUrl("orderhistory")

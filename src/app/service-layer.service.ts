@@ -44,7 +44,7 @@ export class ServiceLayerService {
   }
 
   reduceStocks(q:any,id:any){
-    return this.httpclient.get("Books/reduceStock/"+q+"/"+id)
+    return this.httpclient.post("Books/reduceStock/"+q+"/"+id,0);
 }
 
   updateOneBookQty(nb:any){
