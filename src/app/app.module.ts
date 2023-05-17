@@ -36,7 +36,6 @@ import { UpdatebookComponent } from './Admin/updatebook/updatebook.component';
 import { UpdateComponent } from './Admin/update/update.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
