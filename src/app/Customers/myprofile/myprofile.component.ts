@@ -17,6 +17,7 @@ export class MyprofileComponent
   uid:any;
   encrPass:string="";
   secretkey:string="Group6"
+  forPass:any;
 
   fullDetails:any = {"uid":"","uname":"","uemail":"","upassword":"","umobile":"","ucountry":""};
   constructor(private ser:ServiceLayerService,private toastr: ToastrService,private route:Router){
@@ -35,7 +36,9 @@ export class MyprofileComponent
 
   getCurrentUserDetails(){
     this.ser.getUserById(this.id.uid).subscribe((data)=>{
+      this.forPass = data;
       this.currentuser= data;
+      this.currentuser.upassword = this.Decrypt(this.forPass.upassword);
       this.uid = this.currentuser.uid;
     })
   }
@@ -45,6 +48,15 @@ export class MyprofileComponent
     return this.encrPass;
     
    }
+
+   Decrypt(data:any){
+    let bytes = CryptoJS.AES.decrypt(data,this.secretkey);
+    var dec = bytes.toString(CryptoJS.enc.Utf8);
+    // console.log(dec);
+    
+    return dec;
+    
+  }
 
   updateUserData(data:any){
     console.log(data);

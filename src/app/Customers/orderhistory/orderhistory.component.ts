@@ -27,12 +27,14 @@ export class OrderhistoryComponent {
 
   ngOnInit(){
     this.userId = localStorage.getItem("userdata");
-    this.displayId = JSON.parse(this.userId).uid;    
+    this.displayId = JSON.parse(this.userId).uid; 
+    this.bookName=[];   
     this.getOrderHistory(this.displayId);
   }
 
 
   getOrderHistory(info:any){
+    // this.bookName=[];
     console.log(2);
     
     this.ser.getOrderhistory(info).subscribe((data) => {
@@ -41,7 +43,7 @@ export class OrderhistoryComponent {
     
     for(let i=0;i<this.userorderhistory.length;i++){
       this.bid = this.userorderhistory[i].bid;
-      this.getBookById(this.bid);
+      this.getBookById(this.bid,this.userorderhistory[i]);
       // this.orderDetails.push({"bname":this.userorderhistory[i].oquantity,"oquantity":this.bookName[i].bname})
        this.bookId.push(this.userorderhistory[i].bid);
     }
@@ -52,25 +54,33 @@ export class OrderhistoryComponent {
 
     console.log(this.bookName.length);
     console.log(this.bookName);
-    console.log(this.userorderhistory[0]);
+    console.log(this.userorderhistory);
 
   })
   
 }
 
-getBookById(id:any){
+getBookById(id:any,orders:any){
   console.log("1");
   
   this.ser.getBookById(id).subscribe((data) =>{
     this.book = data;
     console.log(this.book);
+    this.bookName.push({"book":this.book,"orders":orders});
     // this.bookName.push(this.book);
 
-    for(let i=0;i<this.userorderhistory.length;i++){
-      if(this.userorderhistory[i].bid == this.book.bid){
-        this.bookName.push({"book":this.book,"orders":this.userorderhistory[i]});
-      }
-    }
+    // for(let i=0;i<this.userorderhistory.length;i++){
+    //   if(id== this.book.bid){
+    //     if(this.bookName.includes({"book":this.book,"orders":this.userorderhistory[i]})){
+
+    //     }else{
+
+    //       // console.log({"book":this.book,"orders":this.userorderhistory[i]});
+          
+    //       this.bookName.push({"book":this.book,"orders":this.userorderhistory[i]});
+    //     }
+    //   }
+    // }
     
     
     })

@@ -8,24 +8,32 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" routerLink="/userhomepage">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" routerLink="/userhomepage"><i class="bi bi-house-fill mr-1"></i>Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/preview">Library</a>
+                <li class="nav-item  active">
+                    <a class="nav-link" routerLink="/preview"><i class="bi bi-book-fill mr-1"></i>Library</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/myprofilepage">My Profile</a>
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/myprofilepage"><i class="bi bi-person-circle mr-1"></i>My Profile</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/mycartpage">My Cart</a>
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/mycartpage"><i class="bi bi-cart-check-fill mr-1"></i>My Cart</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/orderhistory">OrderHistory</a>
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/orderhistory"><i class="bi bi-hourglass-split mr-1"></i>OrderHistory</a>
                 </li>
-                
+
             </ul>
             <p class="nav-link mb-0 mr-3 font-weight-bolder" style="color:white;">Welcome {{displayName}} !!</p>
-            <button class="btn btn-danger my-2 my-sm-0 mr-4" (click)="logoutUser()">Logout</button>
+            <!-- <span><i class="bi bi-power" (click)="logoutUser()"></i></span> -->
+
+            <button class="btn btn-danger my-2 my-sm-0 mr-4" (click)="logoutUser()"><i class="bi bi-power"></i></button>
+            <!-- <div (click)="logoutUser()">
+                <svg xmlns="http://www.w3.org/2000/svg" style="color:red" width="30" height="30" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                    <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                  </svg>
+            </div> -->
             <form class="d-flex" #searching="ngForm" (ngSubmit)="searchForBook(searching.value)">
                 <input class="form-control me-sm-2" type="text" placeholder="Search" name="booksearch" #booksearch="ngModel" ngModel>
                 <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>

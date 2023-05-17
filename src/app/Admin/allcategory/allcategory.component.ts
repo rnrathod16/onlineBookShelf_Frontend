@@ -33,6 +33,8 @@ categories:any;
       console.log(info);
       this.toastr.success("Category Deleted");
       this.ngOnInit();
+    },(err)=>{
+      this.toastr.error("Cant Remove Category Some Books are present in category")
     })
   }
 

@@ -1,6 +1,98 @@
 <app-usernavbar>
 </app-usernavbar>
-<div class="container">
+
+<div class="container center_div d-flex justify-content-center align-items-center mt-5">
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="p-5 shadow-lg p-3 mb-5 bg-white rounded">
+                <h1 class="font_col text-center mb-4 font-weight-bolder">Billing Address</h1>
+                <form #address="ngForm" (ngSubmit)="getAddress(address.value)" novalidate>
+
+                    <div class="form-group">
+                        <label class="font-weight-bolder">Name</label>
+                        <input type="text" class="form-control" name="uname" #name="ngModel" ngModel placeholder="Enter Your Name" required>
+                        <div>
+                            <span *ngIf="name.errors?.['required'] && name.touched " style="color:red">Please Enter Your Name</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bolder">Address</label>
+                        <input type="text" class="form-control" name="uadd" #uadd="ngModel" ngModel placeholder="Enter Your Address" required>
+                        <div>
+                            <span *ngIf="uadd.errors?.['required'] && uadd.touched " style="color:red">Enter Address!</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bolder">Postal Code</label>
+                        <input type="text" class="form-control" name="uzip" #uzip="ngModel" ngModel placeholder="Enter Postal Code" pattern="\d{6}" required>
+                        <div>
+                            <span *ngIf="uzip.errors?.['required'] && uzip.touched " style="color:red">Enter PostalCode</span>
+                            <span *ngIf="uzip.errors?.['pattern']" style="color:red">Enter correct PostalCode!</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bolder">Countries</label>
+                        <select name="ucountry" class="form-control" #ucountry="ngModel" ngModel required>
+                    <option>--select--</option>
+                    <option *ngFor="let cc of countryList">{{cc.name}}</option>
+                </select>
+
+                        <div>
+                            <span *ngIf="ucountry.errors?.['required'] && ucountry.touched " style="color:red">Please Select Your Country</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <button class="btn font-weight-bold btn_back" style="width:100%" [disabled]="!address.valid">Save Address</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-6 d-flex justify-content-center align-items-center">
+
+            <div class="p-5 shadow-lg p-3 mb-5 bg-white rounded" style="border: 1px solid #eee;">
+                <h1 class="font-weight-bold mb-3">
+                    Order Summary
+                </h1>
+
+                <div>
+                    <table class="mb-4">
+                        <tr>
+                            <td class="font-weight-bold text-center">Total Amount :</td>
+                            <td class="font-weight-bold">{{sum | currency : "INR"}}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">Taxes :</td>
+                            <td class="font-weight-bold">{{ taxes | currency : "INR"}}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">Delivery Charges :</td>
+                            <td class="font-weight-bold">{{ dc | currency : "INR"}}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">To Pay :</td>
+                            <td class="font-weight-bold">{{toPay | currency : "INR"}}</td>
+                        </tr>
+                    </table>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div style="width:100%" class="mb-3">
+                            <button (click)="placeOrder()" class="btn btn-success" [disabled]="!correctaddress" style="width:100%">Proceed to Pay</button>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-center align-items-center">
+
+                        <button class="btn btn-primary" (click)="backToCart()" style="width:100%">Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="container">
     <form style="margin-top: 10%;" #address="ngForm" (ngSubmit)="getAddress(address.value)" novalidate>
     <div class="form-group">
         <div style="width: 47%;">
@@ -40,10 +132,10 @@
         <button class="btn btn-primary" type="submit" [disabled]="!address.valid">Save Address</button>
     </div>
 
-</form>
+</form> -->
 
 <br><br>
-<div style="width: 60%;height: 60%;border: 1px solid #eee;">
+<!-- <div style="width: 60%;height: 60%;border: 1px solid #eee;">
     <h1>
         Order Summary
     </h1>
@@ -78,7 +170,7 @@
         </div>
     </div>
 </div>
-</div>
+</div> -->
 
 <!--<div class="container mt-3">
     <div class="row">

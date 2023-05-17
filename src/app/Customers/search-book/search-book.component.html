@@ -8,35 +8,24 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" routerLink="/userhomepage">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" routerLink="/userhomepage"><i class="bi bi-house-fill mr-1"></i>Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/preview">Library</a>
+                <li class="nav-item  active">
+                    <a class="nav-link" routerLink="/preview"><i class="bi bi-book-fill mr-1"></i>Library</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/myprofilepage">My Profile</a>
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/myprofilepage"><i class="bi bi-person-circle mr-1"></i>My Profile</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/mycartpage">My Cart</a>
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/mycartpage"><i class="bi bi-cart-check-fill mr-1"></i>My Cart</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Fiction</a>
-                        <a class="dropdown-item" href="#">Romance</a>
-                        <a class="dropdown-item" href="#">Fantasy</a>
-                        <a class="dropdown-item" href="#">Thriller</a>
-                        <a class="dropdown-item" href="#">Horror</a>
-                        <a class="dropdown-item" href="#">Biography</a>
-                        <a class="dropdown-item" href="#">Motivational</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/orderhistory"><i class="bi bi-hourglass-split mr-1"></i>OrderHistory</a>
                 </li>
+
             </ul>
             <p class="nav-link mb-0 mr-5 font-weight-bolder" style="color:white;">Welcome {{displayName}} !!</p>
+            <button class="btn btn-danger my-2 my-sm-0 mr-4" (click)="logoutUser()"><i class="bi bi-power"></i></button>
             <form class="d-flex" #searching2="ngForm" (ngSubmit)="search2(searching2.value)">
                 <input class="form-control me-sm-2" type="text" placeholder="Search" name="booksearch2" #booksearch2="ngModel" ngModel>
                 <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
@@ -82,7 +71,7 @@
                     <p class="card-text text-center"><span class="font-weight-bold">Price : </span>{{b.bprice | currency : "INR"}}</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <button (click)="addThisToCart(b.bid,b.bname)" class="btn btn-primary">Add To Cart</button>
-                </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -100,7 +89,7 @@
                     <p class="card-text text-center"><span class="font-weight-bold">Price : </span>{{b.bprice | currency : "INR"}}</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <button (click)="addThisToCart(b.bid,b.bname)" class="btn btn-primary">Add To Cart</button>
-                </div>
+                    </div>
                 </div>
             </div>
         </div>
