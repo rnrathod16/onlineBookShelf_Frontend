@@ -2,25 +2,32 @@
 </app-usernavbar>
 
 <div class="container mt-3">
-
-    <div class="col-md-4 mt-5" *ngFor="let b of BooksInCart">
-        <div class="row">
-            <div class="card d-flex justify-content-center text-right pt-4 shadow-lg mb-5 bg-white rounded" style="width: 18rem;">
-                <img src="{{b.bimg}}" class="card-img-top m-auto" alt="BookImage" style="height:10%;width:50%">
-                <div class="card-body">
-                    <p class="card-text text-center"><span class="font-weight-bold">{{b.bname}}</span></p>
-                    <p class="card-text text-center"><span class="font-weight-bold">{{b.bdesc}}</span></p>
-                    <p class="card-text text-center"><span class="font-weight-bold">Price : </span>{{b.bprice | currency : "INR"}}</p>
+    <h1 class="font-weight-bolder text-center mt-2" style="color:blue">Cart Items</h1>
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-10 mt-3" *ngFor="let b of BooksInCart">
+            <div class="d-flex justify-content-around align-items-center flex-row shadow-lg mb-2 bg-white rounded" style="width: 100%;">
+                <div>
+                    <img src="{{b.bimg}}" class="card-img-top m-auto" alt="BookImage" style="height:205px;width:135px;padding-left: 12px;">
                 </div>
-                <button (click)="removeFromCart(b)" class="btn btn-danger">Remove From Cart</button>
+                <div class="p-5" style="width: 25%;">
+                    <p class="card-text text-left" style="font-size: 40px;"><span class="font-weight-bold">{{b.bname}}</span></p>
+                    <p class="card-text text-left"><span class="font-weight-bold">By {{b.bauthor}}</span></p>
+                </div>
+
+                <form class="form-group d-flex justify-content-center align-items-center flex-column" #qtyForm="ngForm" (ngSubmit)="qtyDetails(b.bid,qtyForm.value)">
+                    <label class="mt-4">Current Quantity</label>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <input style="width: 20%;" class="form-control" name="qty" type="text" [(ngModel)]="b.bquantity">
+                        <button class="btn btn-primary ml-3" type="submit">Save Quantity</button>
+                    </div>
+                </form>
+                <div>
+                    <p class="card-text text-center"><span class="font-weight-bold">Price : </span>{{b.bprice | currency : "INR"}}</p>
+                    <button (click)="removeFromCart(b)" class="btn btn-danger">Remove From Cart</button>
+                </div>
             </div>
-        </div>
-        <form class="form-group form-check-inline" #qtyForm="ngForm" (ngSubmit)="qtyDetails(b.bid,qtyForm.value)">
-            <label>Current Quantity</label>
-            <input style="width: 20%;" class="form-control" name="qty"  type="text" [(ngModel)]="b.bquantity">
-            <button class="btn btn-primary" type="submit">Save Quantity</button>
-        </form>
-        <!--<p class="text-center">Current Quantity : {{b.bquantity}}</p>
+
+            <!--<p class="text-center">Current Quantity : {{b.bquantity}}</p>
         <div class="form-check-inline">
             <button class="btn btn-primary" (click)="plus(b.bid)">+<i class="fa fa-plus"></i></button>
         </div>
@@ -32,17 +39,17 @@
         </div>
     </div>-->
 
-    <div class="d-flex justify-content-center align-items-center" style="float: left;">
 
-        <button class="btn btn-primary" (click)="purchaseCart()">Proceed to CheckOut</button>
+
+
+        </div>
+        <div class="d-flex justify-content-center align-items-center mt-4" style="float: left;">
+            <button class="btn btn-success" (click)="purchaseCart()">Proceed to CheckOut</button>
+        </div>
     </div>
 
 
-
-</div>
-
-
-<!--<div>
+    <!--<div>
             <button type="button" class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#t' + b.bid">Quantity</button>
         </div>
         <div class="modal fade" id="t{{b.bid}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

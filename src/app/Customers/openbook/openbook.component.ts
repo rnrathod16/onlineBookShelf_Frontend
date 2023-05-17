@@ -54,7 +54,7 @@ export class OpenbookComponent {
     else
     {
       console.log("in exist part")
-      alert("already exists")
+      this.toastr.warning(bname+" Already Exists in Cart!");
       //this.toastr.success(bname+" aLready exists in cart!");
     }
     })
